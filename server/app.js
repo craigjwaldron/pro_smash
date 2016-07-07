@@ -6,42 +6,68 @@ var pg = require('pg');
 var bodyParser = require('body-parser');
 
 var app = express();
+var connectionString = "postgres://localhost:5432/pro_smash_tasks";
 
-// pulling in file
-var passport = require('../strategies/user-local.js');
-var session = require('express-session');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 // Setting static page
 app.use(express.static( 'public' ));
 
-app.use(session({
-  secret: 'secret',  //could be any string
-  key: 'user',
-  resave: 'true',
-  saveUninitialized: false,
-  cookie: {maxage: 60000, secure: false}
-}));
-
-// initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-// require routers. making the connection to index.js router. PULLING IN INDEX AND STORING IN INDEX
-var index = require('../routes/index');
-var register = require('../routes/register');
-
-// let server file know how to use the index file. IN ANY ROUTES WE WANT TO GO TO INDEX FILE
-app.use('/register', register);
-app.use('/*', index); // login page
 
 // base url
 app.get( '/', function ( req, res ){
   console.log( 'at base url' );
   res.sendFile( path.resolve( 'views/index.html' ) );
 });
+
+// New Task POST -------------------------------------------------------------------------------------------------------
+app.post ( "/sundayTask", function ( req, res ){
+  console.log( "hit createTask" );
+// Send new task to data base
+  pg.connect( connectionString, function( err, client, done ){
+    var query =  client.query ( "INSERT INTO user_task ( task_name, completed ) VALUES ( $1, $2 )", [ req.body.name, req.body.completed ] );
+      done();
+      query.on('end', function(){
+
+        console.log(req.body.name);
+
+        console.log("POST END");
+      return res.end();
+    }); // End query.on
+  }); // End of pg
+}); // End of post
+
+// --------------------------------------------------------
+
+// App.get to display on DOM
+app.get('/getSundayTasks', function( req, res){
+  console.log( "Hello from getTask app.get" );
+
+
+  pg.connect ( connectionString, function ( err, client, done ){
+    console.log("in DB");
+    var allTasks = [];
+
+    var taskQuery = client.query ( "SELECT * FROM user_task");
+
+    done();
+    var rows = 0;
+    taskQuery.on( 'row', function ( row ){
+      // console.log(row);
+      allTasks.push( row );
+      console.log("PG: ", allTasks);
+
+    });
+
+    taskQuery.on( 'end', function (){
+      console.log("PG CONNECT: ", allTasks);
+      return res.json( allTasks );
+    });
+  }); // End pg.connect function
+
+}); // End of app.get
+// --------------------------------------------------------
 
 // Spinning up the server
 app.listen(3000, function(){
