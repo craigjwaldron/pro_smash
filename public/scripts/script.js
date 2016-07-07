@@ -25,15 +25,18 @@ myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $
     method: 'POST',
     url:'/sundayTask',
     data: newTask
-      });
+  }).then(function(){
+
+  $scope.showSundayTasks();
+});
       $scope.nameIn ='';
     };
-  }]); // End of add controller
+  // }]); // End of add controller
 
   // ---------------------------------------------------------------------------------
-
 // List controller to view list
-myApp.controller('sundayGetController', [ '$scope', '$http', function ($scope, $http) {
+// myApp.controller('sundayGetController', [ '$scope', '$http', function ($scope, $http) {
+
   $scope.allTasks = [];
 
   $scope.showSundayTasks = function(){
@@ -46,7 +49,7 @@ myApp.controller('sundayGetController', [ '$scope', '$http', function ($scope, $
   // console.log("Get the $scope", response.data);
   console.log($scope.sundayTasks);
     }); // End of then function
-  }; // End of $scope.showAllPets
+  }; // End of $scope.showSundayTasks
 
   $scope.showSundayTasks();
 }]); // End of list controller
