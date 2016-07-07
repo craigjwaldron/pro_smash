@@ -26,7 +26,7 @@ app.post ( "/sundayTask", function ( req, res ){
   console.log( "hit createTask" );
 // Send new task to data base
   pg.connect( connectionString, function( err, client, done ){
-    var query =  client.query ( "INSERT INTO user_task ( task_name, completed ) VALUES ( $1, $2 )", [ req.body.name, req.body.completed ] );
+    var query =  client.query ( "INSERT INTO user_task ( task_name, completed, day_due, week_due ) VALUES ( $1, $2, $3, $4 )", [ req.body.name, req.body.completed, req.body.day_due, req.body.week_due ] );
       done();
       query.on('end', function(){
 

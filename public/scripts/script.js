@@ -16,7 +16,8 @@ myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $
     var newTask = {
       name: $scope.nameIn,
       completed: false,
-
+      day_due: 0,
+      week_due: 1
       };
 
       console.log(newTask);
