@@ -8,12 +8,10 @@ var bodyParser = require('body-parser');
 var app = express();
 var connectionString = "postgres://localhost:5432/pro_smash_tasks";
 
-
 app.use(bodyParser.json());
 
 // Setting static page
 app.use(express.static( 'public' ));
-
 
 // base url
 app.get( '/', function ( req, res ){

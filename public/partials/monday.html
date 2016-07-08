@@ -1,14 +1,13 @@
 <div id='mainDiv' style="background-color: red">
 
-    <div id="inputDiv">
-      <span><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter a Task to Attack!"></span><br>
-      <button type="button" name="submitTask" id="submitTask">+</button>
-    </div>
+    <div id="inputDiv" ng-controller = "mondayAddController">
+      <span><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter a Task to Attack!" ng-model = "nameIn"></span><br>
+      <button type="button" name="submitTask" id="submitTask" ng-click="addTask()">+</button>
 
-    <div id='outputDiv' class='outputDiv'>
       <ul>
-        <li></li>
+        <li ng-repeat= "task in sundayTasks"> {{ task.task_name }} </li>
       </ul>
+
     </div>
 
 </div>
