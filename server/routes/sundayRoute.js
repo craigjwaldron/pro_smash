@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var connectionString = "postgres://localhost:5432/pro_smash_tasks";
 
-// New Task POST -------------------------------------------------------------------------------------------------------
+// CREATE Task POST -------------------------------------------------------------------------------------------------------
 router.post ( "/sundayTask", function ( req, res ){
   console.log( "hit createTask" );
 // Send new task to data base
@@ -20,6 +20,45 @@ router.post ( "/sundayTask", function ( req, res ){
         console.log("POST END");
       return res.end();
     }); // End query.on
+  }); // End of pg
+}); // End of post
+
+// --------------------------------------------------------
+
+// COMPLETE Task
+// Send new task to data base
+router.put ( '/completeSundayTask', function ( req, res ){
+  console.log("TASK SMASHEDDDDD!!!!");
+  pg.connect( connectionString, function( err, client, done ){
+    // console.log("Hello" + id);
+    // console.log("Hello" + task.id);
+    console.log(req.body);
+
+    var query =  client.query ( 'UPDATE user_task SET completed=true where id=' + req.body.id + ';' );
+    done();
+    res.end();
+  }); // End of pg
+}); // End of post
+
+// --------------------------------------------------------
+
+// DELETE Task
+// Send new task to data base
+router.delete ( '/deleteSundayTask', function ( req, res ){
+  console.log("TASK DELETED");
+  pg.connect( connectionString, function( err, client, done ){
+    // console.log("Hello" + id);
+    // console.log("Hello" + task.id);
+    console.log(req.body);
+
+    client.query ( 'DELETE from user_task WHERE id=' +req.body.id+ ';' );
+    if(err){
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+    done();
+    res.end();
   }); // End of pg
 }); // End of post
 

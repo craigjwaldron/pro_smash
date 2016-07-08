@@ -1,3 +1,18 @@
 .weekdays {
   display: inline-flex; /* or inline-flex */
 }
+
+ul {
+  margin: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+  max-width: 100%;
+}
+
+li:nth-child(2n) {
+  max-width: 100%;
+}
