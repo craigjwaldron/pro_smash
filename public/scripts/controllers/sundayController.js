@@ -5,7 +5,7 @@ myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $
 
   console.log('hello from sunday.js');
 
-    $scope.addTask = function (){
+    $scope.addSundayTask = function (){
       console.log("button clicked");
       event.preventDefault();
 
@@ -48,4 +48,41 @@ myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $
   }; // End of $scope.showSundayTasks
 
   $scope.showSundayTasks();
+
+  // -----------------------------------------------
+
+  $scope.completeSundayTask = function(taskID){
+
+     console.log('completeSundayTask.js');
+    //  console.log("In da delete task: " + id);
+
+     var sendID = {id: taskID};
+     $http({
+       method: 'PUT',
+       url: '/completeSundayTask',
+       data: sendID
+     }).then(function(){
+       $scope.showSundayTasks();
+     });
+   };//end deleteHero
+
+   // -----------------------------------------------
+
+   $scope.deleteSundayTask = function(taskID){
+
+      console.log('deleteSundayTask.js');
+     //  console.log("In da delete task: " + id);
+
+      var sendID = {id: taskID};
+      $http({
+        method: 'DELETE',
+        url: '/deleteSundayTask',
+        data: sendID,
+        headers: {'Content-Type': 'application/json;charset=utf-8'}
+
+      }).then(function(){
+        $scope.showSundayTasks();
+      });
+    };//end deleteHero
+
 }]); // End of list controller
