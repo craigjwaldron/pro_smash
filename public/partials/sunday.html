@@ -1,17 +1,21 @@
 
-<div id='mainDiv' style="background-color: lightblue">
+<div id='mainDiv'>
 
-    <div id="inputDiv" ng-controller = "sundayAddController">
+    <div id="tasksDiv" ng-controller = "sundayAddController">
       <span><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
       <button type="button" name="submitTask" id="submitTask" ng-click="addSundayTask()">+</button>
 
-      <ul>
-        <li ng-repeat= "task in sundayTasks"> {{ task.task_name }} <br>
-          <br><button type="button" id="completeButton" ng-click = "completeSundayTask(task.id)">Smash Task</button>
-          <br><button type="button" id="deleteButton" ng-click = "deleteSundayTask(task.id)">Delete Task</button>
-       </li>
-      </ul>
+        <div id="taskDiv">
+          <ul>
+            
+              <li ng-repeat= "task in sundayTasks"> {{ task.task_name }} {{task.value}} {{task.sunday_total}}<br>
+              <br><button type="button" id="completeButton" ng-click = "completeSundayTask(task.id)">Smash Task</button>
+              <br><button type="button" id="deleteButton" ng-click = "deleteSundayTask(task.id)">Delete Task</button>
 
-    </div>
+           </li>
+          </ul>
+        </div>
+
+  </div>
 
 </div>

@@ -11,7 +11,7 @@ router.post ( "/sundayTask", function ( req, res ){
   console.log( "hit createTask" );
 // Send new task to data base
   pg.connect( connectionString, function( err, client, done ){
-    var query =  client.query ( "INSERT INTO user_task ( task_name, completed, day_due, week_due ) VALUES ( $1, $2, $3, $4 )", [ req.body.name, req.body.completed, req.body.day_due, req.body.week_due ] );
+    var query =  client.query ( "INSERT INTO user_task ( task_name, completed, day_due, week_due, value, sunday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ req.body.name, req.body.completed, req.body.day_due, req.body.week_due, req.body.value, req.body.sunday_total ] );
       done();
       query.on('end', function(){
 
@@ -57,8 +57,8 @@ router.delete ( '/deleteSundayTask', function ( req, res ){
     } else {
       res.sendStatus(200);
     }
-    done();
     res.end();
+
   }); // End of pg
 }); // End of post
 

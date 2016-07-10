@@ -17,7 +17,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-//TODO SQL query
+// TODO SQL query
   console.log('called deserializeUser');
   pg.connect(connection, function (err, client) {
 
@@ -78,6 +78,7 @@ passport.use('local', new localStrategy({
         if (err) {
             console.log(err);
         }
+
 	    });
     }
 ));
