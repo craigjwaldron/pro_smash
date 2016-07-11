@@ -1,10 +1,3 @@
-/*
-CREATE TABLE users (
- id SERIAL PRIMARY KEY,
- username VARCHAR(100) NOT NULL UNIQUE,
- password VARCHAR(120) NOT NULL
-);
-*/
 
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
@@ -14,13 +7,14 @@ var pg = require('pg');
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
+
 });
 
 passport.deserializeUser(function(id, done) {
 // TODO SQL query
   console.log('called deserializeUser');
   pg.connect(connection, function (err, client) {
-
+    
     var user = {};
     console.log('called deserializeUser - pg');
       var query = client.query("SELECT * FROM users WHERE id = $1", [id]);
@@ -28,6 +22,7 @@ passport.deserializeUser(function(id, done) {
       query.on('row', function (row) {
         console.log('User row', row);
         user = row;
+
         done(null, user);
       });
 
@@ -81,6 +76,6 @@ passport.use('local', new localStrategy({
 
 	    });
     }
-));
+)); // End of Passport.use
 
 module.exports = passport;

@@ -5,6 +5,7 @@ var path = require('path');
 
 // Handles login form POST from index.html
 router.post('/',
+
     passport.authenticate('local', {
         successRedirect: '/router',
         failureRedirect: '/'
@@ -17,6 +18,7 @@ router.post('/',
 // Also catches any other request not explicitly matched elsewhere
 router.get('/', function ( req,res ){
   res.sendFile(path.resolve('public/views/index.html'));
+
 });
 
 module.exports = router;

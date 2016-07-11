@@ -1,5 +1,6 @@
 console.log('hello from sunday.js');
 
+
 // Add controller to add sunday task
 myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $http) {
 
@@ -7,6 +8,7 @@ myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $
 
     $scope.addSundayTask = function (){
       console.log("button clicked");
+    
       // event.preventDefault();
 
     var newTask = {
@@ -43,6 +45,8 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
 // List controller to show sunday tasks
 
   $scope.showSundayTasks = function(){
+    // event.preventDefault();
+
     console.log( 'in get SUNDAY' );
   $http({
   method: 'GET',
@@ -59,6 +63,7 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
   // -----------------------------------------------
 
   $scope.completeSundayTask = function(taskID){
+    // event.preventDefault();
 
      console.log('completeSundayTask.js');
     //  console.log("In da delete task: " + id);
@@ -76,6 +81,7 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
    // -----------------------------------------------
 
    $scope.deleteSundayTask = function(taskID){
+     event.preventDefault();
 
       console.log('deleteSundayTask.js');
      //  console.log("In da delete task: " + id);
@@ -89,6 +95,7 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
 
       }).then(function(){
         $scope.showSundayTasks();
+
       });
     };// End deleteSundayTask
 

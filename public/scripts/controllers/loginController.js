@@ -6,7 +6,9 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
     $scope.message = '';
 
     $scope.login = function() {
-      if($scope.user.username == '' || $scope.user.password == '') {
+      event.preventDefault();
+
+      if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Enter your username and password!";
       } else {
         console.log('sending to server...', $scope.user);
@@ -24,7 +26,8 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
     };
 
     $scope.registerUser = function() {
-      if($scope.user.username == '' || $scope.user.password == '') {
+      event.preventDefault();
+      if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Choose a username and password!";
       } else {
         console.log('sending to server...', $scope.user);

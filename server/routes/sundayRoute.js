@@ -18,6 +18,7 @@ router.post ( "/sundayTask", function ( req, res ){
         console.log(req.body.name);
 
         console.log("POST END");
+
       return res.end();
     }); // End query.on
   }); // End of pg
@@ -35,7 +36,7 @@ router.put ( '/completeSundayTask', function ( req, res ){
     console.log(req.body);
 
     var query =  client.query ( 'UPDATE user_task SET completed=true where id=' + req.body.id + ';' );
-    done();
+  done();
     res.end();
   }); // End of pg
 }); // End of post
@@ -52,6 +53,7 @@ router.delete ( '/deleteSundayTask', function ( req, res ){
     console.log(req.body);
 
     client.query ( 'DELETE from user_task WHERE id=' +req.body.id+ ';' );
+  done();
     if(err){
       res.sendStatus(500);
     } else {
@@ -73,9 +75,9 @@ router.get('/getSundayTasks', function( req, res){
     var allTasks = [];
 
     var taskQuery = client.query ( "SELECT * FROM user_task");
-
-    done();
+      done();
     var rows = 0;
+      
     taskQuery.on( 'row', function ( row ){
       // console.log(row);
       allTasks.push( row );

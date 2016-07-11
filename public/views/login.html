@@ -1,18 +1,13 @@
-<div class="container">
-  <h1 class="lead">Login</h1>
-    <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2>
-    <form ng-submit="login()">
-      <div>
-          <label for="username">Username:</label>
-          <input type="text" ng-model="user.username" />
-      </div>
-      <div>
-          <label for="password">Password:</label>
-          <input type="password" ng-model="user.password" />
-      </div>
-      <div>
-          <input class="btn btn-default" type="submit" name="submit" value="Log In" />
-          <a href="#register">Register</a>
-      </div>
-    </form>
+
+<div class="login">
+
+  <h2 class="login-header">Log in</h2>
+  <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2>
+
+  <form ng-submit="login(); $event.stopPropagation()" class="login-container">
+    <p><input type="username" placeholder="Username" ng-model="user.username"></p>
+    <p><input type="password" placeholder="Password" ng-model="user.password"></p>
+    <p><input type="submit" value="Log in"></p>
+    <p><a type="submit" class="btn" href="#register">Register</a></p>
+  </form>
 </div>

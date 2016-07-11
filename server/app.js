@@ -1,29 +1,33 @@
 console.log('hello from app.js');
 
-var path = require('path');
 var express = require('express');
-var router = express.Router();
+var app = express();
+
+// Setting static page
+app.use(express.static( 'public' ));
+
+var path = require('path');
+var bodyParser = require('body-parser');
+
+// var router = express.Router();
 
 var pg = require('pg');
-var bodyParser = require('body-parser');
-var app = express();
+
 var connectionStringUsers = 'postgres://localhost:5432/pro_smash_users';
-var connectionString = "postgres://localhost:5432/pro_smash_tasks";
-var sundayRoute = require('./routes/sundayRoute');
+// var connectionString = "postgres://localhost:5432/pro_smash_tasks";
 
 //passport connection
 var passport = require('./strategies/user.sql.js');
 var session = require('express-session');
 
 //Route inclusion
+var sundayRoute = require('./routes/sundayRoute');
+
 var login = require('./routes/login');
 var register = require('./routes/register');
 var router = require('./routes/routes');
 
 app.use(bodyParser.json());
-
-// Setting static page
-app.use(express.static( 'public' ));
 
 // Passport Session Configuration //
 app.use(session({
