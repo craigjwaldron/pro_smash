@@ -9,7 +9,7 @@
         <div id='outputDiv' class='outputDiv'>
 
           <ul>
-              <li ng-repeat= "task in sundayTasks" class="active" id="taskDiv"> {{ task.task_name }} {{task.value}} {{task.sunday_total}}<br>
+              <li ng-repeat= "task in sundayTasks" class="active" id="taskDiv"> {{ task.task_name }} <br>
               <br><span><button type="button" id="completeButton" ng-click = "completeSundayTask(task.id);   $event.stopPropagation()">Smash</button></span>
               <br><button type="button" id="deleteButton" ng-click = "deleteSundayTask(task.id);   $event.stopPropagation()">Delete</button>
 
@@ -20,20 +20,3 @@
   </div>
 
 </div>
-
-<!--
-<div id='mainDiv'>
-
-      <div id="inputDiv">
-        <h1>The Task Attacker</h1>
-        <span><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter a Task to Attack!"></span><br>
-        <button type="button" name="submitTask" id="submitTask">+</button>
-      </div>
-
-      <div id='outputDiv' class='outputDiv'>
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-
-  </div> -->

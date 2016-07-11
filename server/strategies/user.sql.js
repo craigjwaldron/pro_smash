@@ -7,14 +7,12 @@ var pg = require('pg');
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
-
 });
 
 passport.deserializeUser(function(id, done) {
-// TODO SQL query
   console.log('called deserializeUser');
   pg.connect(connection, function (err, client) {
-    
+
     var user = {};
     console.log('called deserializeUser - pg');
       var query = client.query("SELECT * FROM users WHERE id = $1", [id]);
@@ -73,7 +71,6 @@ passport.use('local', new localStrategy({
         if (err) {
             console.log(err);
         }
-
 	    });
     }
 )); // End of Passport.use

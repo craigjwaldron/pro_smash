@@ -12,17 +12,16 @@ myApp.config(['$routeProvider', function($routeProvider) {
 		})
 		.when('/home', {
 			templateUrl: '/views/home.html',
-			controller: "HomeController"
+			controller: ""
 		})
 		.when('/other', {
 			templateUrl: '/views/other.html',
-			controller: "OtherController"
+			controller: ""
 		})
 		.otherwise({
 			redirectTo: 'login'
 		});
 }]);
-
 
 
 myApp.controller("modalDemo", function($scope, $rootScope) {
