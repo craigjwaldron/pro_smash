@@ -11,7 +11,7 @@ router.post ( "/mondayTask", function ( req, res ){
   console.log( "hit createTask" );
 // Send new task to data base
   pg.connect( connectionString, function( err, client, done ){
-    var query =  client.query ( "INSERT INTO monday_table ( task_name, completed, day_due, week_due, value, sunday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ req.body.name, req.body.completed, req.body.day_due, req.body.week_due, req.body.value, req.body.sunday_total ] );
+    var query =  client.query ( "INSERT INTO monday_table ( task_name, completed, day_due, week_due, task_total_value, monday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ req.body.name, req.body.completed, req.body.day_due, req.body.week_due, req.body.task_total_value, req.body.sunday_total ] );
       done();
       query.on('end', function(){
 

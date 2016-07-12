@@ -16,12 +16,12 @@ myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $
       completed: false,
       day_due: 0,
       week_due: 1,
-      value: 1,
+      task_total_value: 1,
       sunday_total: 0
       };
 
-$scope.totalValue.push(newTask.value);
-console.log("VALUEEEEE", newTask.value);
+$scope.totalValue.push(newTask.task_total_value);
+console.log("VALUEEEEE", newTask.task_total_value);
 
 for(var i in $scope.totalValue) { newTask.sunday_total += $scope.totalValue[i]; }
 

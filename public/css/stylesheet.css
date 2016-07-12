@@ -22,6 +22,7 @@ body {
 body {
   color: #333;
   padding: 1.5em;
+
 }
 table {
   border-collapse: collapse;
@@ -33,31 +34,33 @@ th {
 }
 th,
 td {
-  border: 0.125em solid #333;
-  line-height: 1.5;
+	vertical-align: baseline;
+  /*border: 0.125em solid #333;*/
+  /*line-height: 1.5;*/
   padding: 0.75em;
-  text-align: left;
+  text-align: center;
 }
 /* Stack rows vertically on small screens */
 @media (max-width: 30em) {
   /* Hide column labels */
 	thead tr {
-		position: absolute;
-		top: -9999em;
-		left: -9999em;
+		/*position: absolute;*/
+		/*top: -9999em;*/
+		/*left: -9999em;*/
+
 	}
 	tr {
     border: 0.125em solid #333;
     border-bottom: 0;
   }
 	/* Leave a space between table rows */
-  tr + tr {
+  /*tr + tr {
     margin-top: 1.5em;
-  }
+  }*/
   /* Get table cells to act like rows */
   tr,
   td {
-		display: block;
+		/*display: block;*/
 	}
 	td {
 		border: none;
@@ -68,7 +71,7 @@ td {
 	/* Add data labels */
   td:before {
     content: attr(data-label);
-    display: inline-block;
+    /*display: inline-block;*/
     font-weight: bold;
     line-height: 1.5;
     margin-left: -100%;
@@ -86,8 +89,6 @@ td {
     margin-left: 0;
   }
 }
-
-
 
 
 
@@ -167,7 +168,6 @@ li {
   list-style-type: none;
   max-width: 100%;
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-
 }
 
 li:nth-child(2n) {
@@ -230,7 +230,12 @@ input:focus {
 }
 
 
+
+
+
+
 /*LOGIN STYLING*/
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
@@ -249,15 +254,6 @@ body {
 .login p {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-/* The triangle form is achieved by a CSS hack */
-.login-triangle {
-  width: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border: 12px solid transparent;
-  border-bottom-color: #28d;
 }
 
 .login-header {
