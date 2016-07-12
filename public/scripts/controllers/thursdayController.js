@@ -1,4 +1,4 @@
-console.log('hello from thursday.js');
+// console.log('hello from thursday.js');
 
 
 // Add controller to add thursday task
@@ -25,7 +25,7 @@ console.log("VALUEEEEE", newTask.task_total_value);
 
 for(var i in $scope.totalValue) { newTask.thursday_total += $scope.totalValue[i]; }
 
-console.log("Thursday total tasks", newTask.thursday_total);
+// console.log("Thursday total tasks", newTask.thursday_total);
 
     $http({
     method: 'POST',
@@ -46,14 +46,14 @@ console.log("Thursday total tasks", newTask.thursday_total);
   $scope.showThursdayTasks = function(){
     // event.preventDefault();
 
-    console.log( 'in get SUNDAY' );
+    // console.log( 'in get SUNDAY' );
   $http({
   method: 'GET',
   url:'thursdayRoute/getThursdayTasks'
 }).then(function( response ){
   $scope.thursdayTasks = response.data;
   // console.log("Get the $scope", response.data);
-  console.log($scope.thursdayTasks);
+  // console.log($scope.thursdayTasks);
     }); // End of then function
   }; // End of $scope.showThursdayTasks
 
@@ -70,7 +70,7 @@ console.log("Thursday total tasks", newTask.thursday_total);
      var sendID = {id: taskID};
      $http({
        method: 'PUT',
-       url: '/completeThursdayTask',
+       url: 'thursdayRoute/completeThursdayTask',
        data: sendID
      }).then(function(){
        $scope.showThursdayTasks();

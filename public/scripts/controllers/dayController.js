@@ -1,28 +1,12 @@
-console.log('hello from dayController.js');
+myApp.controller('dayController', [ '$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
 
+  $rootScope.count = 1;
 
-myApp.controller('HomeController', [ '$scope', '$http', function ($scope, $http) {
+  $scope.iterate = function(){
+  	console.log('BUTTON CLICKED');
 
-      $scope.iterate = function(){
-          CounterService.iterate();
-          console.log("HERE: " , CounterService.counter.count);
-      };
-}]);
+  $rootScope.count++;
+  console.log($rootScope.count);
 
-      myApp.factory("CounterService", [function(){
-
-        var cat = {
-          count : 1
-        };
-
-        var catIterate = function(){
-          cat.count++;
-          console.log(cat.count);
-        };
-
-        //public
-        return {
-          counter : cat,
-          iterate : catIterate
-    };
+  };
 }]);

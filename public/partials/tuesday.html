@@ -11,8 +11,8 @@
           <ul>
 
               <li ng-repeat= "task in tuesdayTasks" class="active" id="taskDiv"> {{ task.task_name }}<br>
-              <br><span><button type="button" id="completeButton" ng-click = "completetuesdayTask(task.id); ">Smash</button></span>
-              <br><button type="button" id="deleteButton" ng-click = "deletetuesdayTask(task.id); ">Delete</button>
+              <br><span><button type="button" id="completeButton" ng-click = "completeTuesdayTask(task.id); ">Smash</button></span>
+              <br><button type="button" id="deleteButton" ng-click = "deleteTuesdayTask(task.id); ">Delete</button>
 
            </li>
           </ul>

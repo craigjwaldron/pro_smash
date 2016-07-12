@@ -1,9 +1,9 @@
-console.log('hello from friday.js');
+// console.log('hello from friday.js');
 
 
 // Add controller to add friday task
-myApp.controller('fridayAddController', [ '$scope', '$http', function ($scope, $http) {
-
+myApp.controller('fridayAddController', [ '$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
+// console.log("FRIDAY", $rootScope.count);
   $scope.totalValue=[];
 
     $scope.addFridayTask = function (){
@@ -46,14 +46,14 @@ console.log("friday total tasks", newTask.friday_total);
   $scope.showFridayTasks = function(){
     // event.preventDefault();
 
-    console.log( 'in get friday' );
+    // console.log( 'in get friday' );
   $http({
   method: 'GET',
   url:'fridayRoute/getFridayTasks'
 }).then(function( response ){
   $scope.fridayTasks = response.data;
   // console.log("Get the $scope", response.data);
-  console.log($scope.fridayTasks);
+  // console.log($scope.fridayTasks);
     }); // End of then function
   }; // End of $scope.showfridayTasks
 
@@ -70,7 +70,7 @@ console.log("friday total tasks", newTask.friday_total);
      var sendID = {id: taskID};
      $http({
        method: 'PUT',
-       url: '/completeFridayTask',
+       url: 'ridayRoute/completeFridayTask',
        data: sendID
      }).then(function(){
        $scope.showFridayTasks();
@@ -79,7 +79,7 @@ console.log("friday total tasks", newTask.friday_total);
 
    // -----------------------------------------------
 
-   $scope.deletefridayTask = function(taskID){
+   $scope.deleteFridayTask = function(taskID){
      event.preventDefault();
 
       console.log('deleteFridayTask.js');

@@ -1,4 +1,4 @@
-console.log('hello from monday.js');
+// console.log('hello from monday.js');
 
 
 // Add controller to add sunday task
@@ -26,7 +26,7 @@ console.log("VALUEEEEE", newTask.task_total_value);
 
 for(var i in $scope.totalValue) { newTask.monday_total += $scope.totalValue[i]; }
 
-console.log("Monday total tasks", newTask.monday_total);
+// console.log("Monday total tasks", newTask.monday_total);
 
     $http({
     method: 'POST',
@@ -46,14 +46,14 @@ console.log("Monday total tasks", newTask.monday_total);
   $scope.showMondayTasks = function(){
     // event.preventDefault();
 
-    console.log( 'in get SUNDAY' );
+    // console.log( 'in get SUNDAY' );
   $http({
   method: 'GET',
   url:'mondayRoute/getMondayTasks'
 }).then(function( response ){
   $scope.mondayTasks = response.data;
   // console.log("Get the $scope", response.data);
-  console.log($scope.mondayTasks);
+  // console.log($scope.mondayTasks);
     }); // End of then function
   }; // End of $scope.showSundayTasks
 
