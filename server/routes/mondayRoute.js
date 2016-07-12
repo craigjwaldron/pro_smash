@@ -7,11 +7,11 @@ var app = express();
 var connectionString = "postgres://localhost:5432/pro_smash_tasks";
 
 // CREATE Task POST -------------------------------------------------------------------------------------------------------
-router.post ( "/sundayTask", function ( req, res ){
+router.post ( "/mondayTask", function ( req, res ){
   console.log( "hit createTask" );
 // Send new task to data base
   pg.connect( connectionString, function( err, client, done ){
-    var query =  client.query ( "INSERT INTO user_task ( task_name, completed, day_due, week_due, value, sunday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ req.body.name, req.body.completed, req.body.day_due, req.body.week_due, req.body.value, req.body.sunday_total ] );
+    var query =  client.query ( "INSERT INTO monday_table ( task_name, completed, day_due, week_due, value, sunday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ req.body.name, req.body.completed, req.body.day_due, req.body.week_due, req.body.value, req.body.sunday_total ] );
       done();
       query.on('end', function(){
 
@@ -28,14 +28,14 @@ router.post ( "/sundayTask", function ( req, res ){
 
 // COMPLETE Task
 // Send new task to data base
-router.put ( '/completeSundayTask', function ( req, res ){
+router.put ( '/completeMondayTask', function ( req, res ){
   console.log("TASK SMASHEDDDDD!!!!");
   pg.connect( connectionString, function( err, client, done ){
     // console.log("Hello" + id);
     // console.log("Hello" + task.id);
     console.log(req.body);
 
-    var query =  client.query ( 'UPDATE user_task SET completed=true where id=' + req.body.id + ';' );
+    var query =  client.query ( 'UPDATE monday_table SET completed=true where id=' + req.body.id + ';' );
   done();
     res.end();
   }); // End of pg
@@ -45,14 +45,14 @@ router.put ( '/completeSundayTask', function ( req, res ){
 
 // DELETE Task
 // Send new task to data base
-router.delete ( '/deleteSundayTask', function ( req, res ){
+router.delete ( '/deleteMondayTask', function ( req, res ){
   console.log("TASK DELETED");
   pg.connect( connectionString, function( err, client, done ){
     // console.log("Hello" + id);
     // console.log("Hello" + task.id);
     console.log(req.body);
 
-    client.query ( 'DELETE from user_task WHERE id=' +req.body.id+ ';' );
+    client.query ( 'DELETE from monday_table WHERE id=' +req.body.id+ ';' );
   done();
     if(err){
       res.sendStatus(500);
@@ -67,17 +67,17 @@ router.delete ( '/deleteSundayTask', function ( req, res ){
 // --------------------------------------------------------
 
 // App.get to display on DOM
-router.get('/getSundayTasks', function( req, res){
+router.get('/getMondayTasks', function( req, res){
   console.log( "Hello from getTask app.get" );
 
   pg.connect ( connectionString, function ( err, client, done ){
     console.log("in DB");
     var allTasks = [];
 
-    var taskQuery = client.query ( "SELECT * FROM user_task");
+    var taskQuery = client.query ( "SELECT * FROM monday_table");
       done();
     var rows = 0;
-      
+
     taskQuery.on( 'row', function ( row ){
       // console.log(row);
       allTasks.push( row );

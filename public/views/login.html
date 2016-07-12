@@ -1,0 +1,13 @@
+
+<div class="login">
+
+  <h2 class="login-header">Log in</h2>
+  <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2>
+
+  <form ng-submit="login()" class="login-container">
+    <p><input type="username" placeholder="Username" ng-model="user.username"></p>
+    <p><input type="password" placeholder="Password" ng-model="user.password"></p>
+    <p><input type="submit" value="Log in"></p>
+    <p><a type="submit" class="btn" href="#register">Register</a></p>
+  </form>
+</div>

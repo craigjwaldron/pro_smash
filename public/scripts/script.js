@@ -1,56 +1,93 @@
-// console.log('hello from script.js');
-//
-//
-var myApp=angular.module( 'myApp', [] );
-//
-//
-// // ---------------------------------------------------------------------------------
-//
-// // Add controller to add new pet
-// myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $http) {
-//
-//     $scope.addTask = function (){
-//       console.log("button clicked");
-//       event.preventDefault();
-//
-//     var newTask = {
-//       name: $scope.nameIn,
-//       completed: false,
-//       day_due: 0,
-//       week_due: 1
-//       };
-//
-//       console.log(newTask);
-//
-//     $http({
-//     method: 'POST',
-//     url:'/sundayTask',
-//     data: newTask
-//   }).then(function(){
-//
-//   $scope.showSundayTasks();
-// });
-//       $scope.nameIn ='';
-//     };
-//   // }]); // End of add controller
-//
-//   // ---------------------------------------------------------------------------------
-// // List controller to view list
-// // myApp.controller('sundayGetController', [ '$scope', '$http', function ($scope, $http) {
-//
-//   $scope.allTasks = [];
-//
-//   $scope.showSundayTasks = function(){
-//     console.log( 'in get SUNDAY' );
-//   $http({
-//   method: 'GET',
-//   url:'/getSundayTasks'
-// }).then(function( response ){
-//   $scope.sundayTasks = response.data;
-//   // console.log("Get the $scope", response.data);
-//   console.log($scope.sundayTasks);
-//     }); // End of then function
-//   }; // End of $scope.showSundayTasks
-//
-//   $scope.showSundayTasks();
-// }]); // End of list controller
+var myApp = angular.module('myApp', ['ngRoute']);
+
+myApp.config(['$routeProvider', function($routeProvider) {
+	$routeProvider
+		.when('/login', {
+			templateUrl: '/views/login.html',
+			controller: "LoginController"
+		})
+		.when('/register', {
+			templateUrl: '/views/register.html',
+			controller: "LoginController"
+		})
+		.when('/home', {
+			templateUrl: '/views/home.html',
+			controller: "HomeController"
+		})
+		.when('/other', {
+			templateUrl: '/views/other.html',
+			controller: "OtherController"
+		})
+		.otherwise({
+			redirectTo: 'login'
+		});
+}]);
+
+
+myApp.controller("modalDemo", function($scope, $rootScope) {
+  $scope.leftVisible = false;
+          $scope.rightVisible = false;
+
+  $scope.close = function() {
+              $scope.leftVisible = false;
+    $scope.rightVisible = false;
+  };
+
+          $scope.showLeft = function(e) {
+              $scope.leftVisible = true;
+              e.stopPropagation();
+          };
+
+          $scope.showRight = function(e) {
+              $scope.rightVisible = true;
+              e.stopPropagation();
+          };
+
+          $rootScope.$on("documentClicked", _close);
+  $rootScope.$on("escapePressed", _close);
+
+          function _close() {
+              $scope.$apply(function() {
+                  $scope.close();
+              });
+          }
+});
+
+myApp.run(function($rootScope) {
+  document.addEventListener("keyup", function(e) {
+    if (e.keyCode === 27)
+      $rootScope.$broadcast("escapePressed", e.target);
+  });
+
+          document.addEventListener("click", function(e) {
+              $rootScope.$broadcast("documentClicked", e.target);
+          });
+});
+
+myApp.directive("menu", function() {
+  return {
+    restrict: "E",
+    template: "<div ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }' ng-transclude></div>",
+    transclude: true,
+              scope: {
+                  visible: "=",
+                  alignment: "@"
+              }
+  };
+});
+
+      myApp.directive("menuItem", function() {
+           return {
+               restrict: "E",
+               template: "<div ng-click='navigate()' ng-transclude></div>",
+               transclude: true,
+               scope: {
+                   hash: "@"
+               },
+               link: function($scope) {
+                   $scope.navigate = function() {
+                       window.location.hash = $scope.hash;
+                   };
+               }
+           };
+      });
