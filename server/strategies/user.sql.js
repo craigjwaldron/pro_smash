@@ -1,3 +1,10 @@
+/*
+CREATE TABLE users (
+ id SERIAL PRIMARY KEY,
+ username VARCHAR(100) NOT NULL UNIQUE,
+ password VARCHAR(120) NOT NULL
+);
+*/
 
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
@@ -10,8 +17,9 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
+//TODO SQL query
   console.log('called deserializeUser');
-  pg.connect(connection, function (err, client) {
+  pg.connect(connection, function (err, client, complete) {
 
     var user = {};
     console.log('called deserializeUser - pg');
@@ -20,13 +28,12 @@ passport.deserializeUser(function(id, done) {
       query.on('row', function (row) {
         console.log('User row', row);
         user = row;
-
         done(null, user);
       });
 
       // After all data is returned, close connection and return results
       query.on('end', function () {
-          client.end();
+          complete();
       });
 
       // Handle Errors
@@ -73,6 +80,6 @@ passport.use('local', new localStrategy({
         }
 	    });
     }
-)); // End of Passport.use
+));
 
 module.exports = passport;

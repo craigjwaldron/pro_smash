@@ -6,8 +6,6 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
     $scope.message = '';
 
     $scope.login = function() {
-      event.preventDefault();
-
       if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Enter your username and password!";
       } else {
@@ -26,7 +24,6 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
     };
 
     $scope.registerUser = function() {
-      event.preventDefault();
       if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Choose a username and password!";
       } else {
