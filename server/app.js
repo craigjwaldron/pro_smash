@@ -10,7 +10,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var connectionStringUsers = 'postgres://localhost:5432/pro_smash_users';
 var connectionString = "postgres://localhost:5432/pro_smash_tasks";
-var sundayRoute = require('./routes/sundayRoute');
 
 //passport connection
 var passport = require('./strategies/user.sql.js');
@@ -23,6 +22,13 @@ var router = require('./routes/routes');
 // //Route inclusion
 var sundayRoute = require('./routes/sundayRoute');
 var mondayRoute = require('./routes/mondayRoute');
+var tuesdayRoute = require('./routes/tuesdayRoute');
+var wednesdayRoute = require('./routes/wednesdayRoute');
+var thursdayRoute = require('./routes/thursdayRoute');
+var fridayRoute = require('./routes/fridayRoute');
+var saturdayRoute = require('./routes/saturdayRoute');
+
+
 
 app.use(bodyParser.json());
 
@@ -48,9 +54,14 @@ app.use('/router', router);
 app.use('/login', login);
 app.use('/', login);
 app.use('/', router);
-app.use('/', sundayRoute );
 app.use('/sundayRoute', sundayRoute );
 app.use('/mondayRoute', mondayRoute );
+app.use('/tuesdayRoute', tuesdayRoute );
+app.use('/wednesdayRoute', wednesdayRoute );
+app.use('/thursdayRoute', thursdayRoute );
+app.use('/fridayRoute', fridayRoute );
+app.use('/saturdayRoute', saturdayRoute );
+
 
 // base url
 router.get( '/', function ( req, res ){

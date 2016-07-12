@@ -1,12 +1,12 @@
-console.log('hello from sunday.js');
+console.log('hello from wednesday.js');
 
 
-// Add controller to add sunday task
-myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $http) {
+// Add controller to add wednesday task
+myApp.controller('wednesdayAddController', [ '$scope', '$http', function ($scope, $http) {
 
   $scope.totalValue=[];
 
-    $scope.addSundayTask = function (){
+    $scope.addWednesdayTask = function (){
       console.log("button clicked");
 
       // event.preventDefault();
@@ -17,23 +17,23 @@ myApp.controller('sundayAddController', [ '$scope', '$http', function ($scope, $
       day_due: 0,
       week_due: 1,
       task_total_value: 1,
-      sunday_total: 0
+      wednesday_total: 0
       };
 
 $scope.totalValue.push(newTask.task_total_value);
 console.log("VALUEEEEE", newTask.task_total_value);
 
-for(var i in $scope.totalValue) { newTask.sunday_total += $scope.totalValue[i]; }
+for(var i in $scope.totalValue) { newTask.wednesday_total += $scope.totalValue[i]; }
 
-console.log("Sunday total tasks", newTask.sunday_total);
+console.log("Wednesday total tasks", newTask.wednesday_total);
 
     $http({
     method: 'POST',
-    url:'sundayRoute/sundayTask',
+    url:'wednesdayRoute/wednesdayTask',
     data: newTask
   }).then(function(){
 
-    $scope.showSundayTasks();
+    $scope.showWednesdayTasks();
 
     });
       $scope.nameIn =''; // Reset input
@@ -41,61 +41,61 @@ console.log("Sunday total tasks", newTask.sunday_total);
   // }]); // End of add controller
 
 // -----------------------------------------------
-// List controller to show sunday tasks
+// List controller to show wednesday tasks
 
-  $scope.showSundayTasks = function(){
+  $scope.showWednesdayTasks = function(){
     // event.preventDefault();
 
     console.log( 'in get SUNDAY' );
   $http({
   method: 'GET',
-  url:'sundayRoute/getSundayTasks'
+  url:'wednesdayRoute/getWednesdayTasks'
 }).then(function( response ){
-  $scope.sundayTasks = response.data;
+  $scope.wednesdayTasks = response.data;
   // console.log("Get the $scope", response.data);
-  console.log($scope.sundayTasks);
+  console.log($scope.wednesdayTasks);
     }); // End of then function
-  }; // End of $scope.showSundayTasks
+  }; // End of $scope.showWednesdayTasks
 
-  $scope.showSundayTasks();
+  $scope.showWednesdayTasks();
 
   // -----------------------------------------------
 
-  $scope.completeSundayTask = function(taskID){
+  $scope.completeWednesdayTask = function(taskID){
     // event.preventDefault();
 
-     console.log('completeSundayTask.js');
+     console.log('completeWednesdayTask.js');
     //  console.log("In da delete task: " + id);
 
      var sendID = {id: taskID};
      $http({
        method: 'PUT',
-       url: '/completeSundayTask',
+       url: '/completeWednesdayTask',
        data: sendID
      }).then(function(){
-       $scope.showSundayTasks();
+       $scope.showWednesdayTasks();
      });
-   };// End completeSundayTask
+   };// End completeWednesdayTask
 
    // -----------------------------------------------
 
-   $scope.deleteSundayTask = function(taskID){
+   $scope.deleteWednesdayTask = function(taskID){
      event.preventDefault();
 
-      console.log('deleteSundayTask.js');
+      console.log('deleteWednesdayTask.js');
      //  console.log("In da delete task: " + id);
 
       var sendID = {id: taskID};
       $http({
         method: 'DELETE',
-        url: 'sundayRoute/deleteSundayTask',
+        url: 'wednesdayRoute/deleteWednesdayTask',
         data: sendID,
         headers: {'Content-Type': 'application/json;charset=utf-8'}
 
       }).then(function(){
-        $scope.showSundayTasks();
+        $scope.showWednesdayTasks();
 
       });
-    };// End deleteSundayTask
+    };// End deleteWednesdayTask
 
 }]); // End of list controller

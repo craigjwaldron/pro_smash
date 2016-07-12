@@ -1,0 +1,25 @@
+
+<!-- <div id='mainDiv'> -->
+
+    <div id="tasksDiv" ng-controller = 'thursdayAddController'>
+
+      <span><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
+      <button type="button" name="submitTask" id="submitTask" ng-click="addThursdayTask(); ">+</button>
+
+        <div id='outputDiv' class='outputDiv'>
+
+          <ul>
+
+              <li ng-repeat= "task in thursdayTasks" class="active" id="taskDiv"> {{ task.task_name }}<br>
+              <br><span><button type="button" id="completeButton" ng-click = "completethursdayTask(task.id); ">Smash</button></span>
+              <br><button type="button" id="deleteButton" ng-click = "deletethursdayTask(task.id); ">Delete</button>
+
+           </li>
+          </ul>
+        </div>
+
+  </div>
+
+<!-- </div> -->
+<!--
+ {{task.value}} {{task.thursday_total}} -->
