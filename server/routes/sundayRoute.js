@@ -101,7 +101,6 @@ router.get('/getSundayTasks', function( req, res){
 router.put ( '/moveSundayTask', function ( req, res ){
   console.log("CHECKED BRO");
   console.log("TASK TO BE MOVED", req.body.name);
-  console.log("DA ID BE");
 
   // pg.connect( connectionString, function( err, client, done ){
 

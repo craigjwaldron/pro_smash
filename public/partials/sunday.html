@@ -1,5 +1,8 @@
 
+
+
 <div id='mainDiv'>
+
 
     <div id="tasksDiv" ng-controller = "sundayAddController">
 
@@ -9,13 +12,17 @@
         <div id='outputDiv' class='outputDiv'>
 
           <ul>
-              <span class="taskSpan"><li ng-repeat= "task in sundayTasks" class="active" id="taskDiv"  style="vertical-align:center;"> {{ task.task_name }} </span><br>
+
+              <li ng-repeat= "task in sundayTasks" class="active" id="taskDiv"  style="vertical-align:center;"> {{ task.task_name }}<br>
+
               <br><span><button style="border:none;" type="button" id="completeButton" ng-click = "completeSundayTask(task.id);   $event.stopPropagation()">Smash</button></span>
               <br><button  style="border:none;" type="button" id="deleteButton" ng-click = "deleteSundayTask(task.id);   $event.stopPropagation()">Delete</button>
 
            </li>
           </ul>
         </div>
+
+
 
   </div>
 

@@ -271,13 +271,13 @@ input:focus {
 }
 
 .login-header {
-  background: #F2DFBB;
+  background: #324452;
   padding: 20px;
   font-size: 1em;
   font-weight: lighter;
   text-align: center;
   text-transform: uppercase;
-  color: #97BDBF;
+  color: white;
 }
 
 .login-container {
@@ -319,23 +319,15 @@ a:link {
   /*color: #555;*/
 }
 
-/* Text fields' focus effect */
-/*.login input[type="email"]:focus,{
-	border-color: #BF3604;
-}
-.login input[type="password"]:focus {
-  border-color: #BF3604;
-}*/
-
 .login input[type="submit"] {
-  background: #F2DFBB;
+  background: #97BDBF;
   border-color: transparent;
   color: #324452;
   cursor: pointer;
 }
 
 .login input[type="submit"]:hover {
-  background: #DECCAB;
+  background: #83A4A6;
 }
 
 /* Buttons' focus effect */
