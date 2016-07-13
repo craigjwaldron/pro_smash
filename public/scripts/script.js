@@ -23,6 +23,21 @@ myApp.config(['$routeProvider', function($routeProvider) {
 		});
 }]);
 
+// myApp.controller("HomeController", ["$scope", "CounterService", function($scope, CounterService){
+//
+//     $scope.iterate = function(){
+//         CounterService.iterate();
+//         console.log("HERE: " , CounterService.counter.count);
+//     };
+// }]);
+
+
+
+myApp.factory('dayController', ['$rootScope', "CounterService", function ($rootScope, CounterService){
+
+	}]);
+
+
 
 myApp.controller("modalDemo", function($scope, $rootScope) {
   $scope.leftVisible = false;

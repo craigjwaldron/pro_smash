@@ -1,5 +1,5 @@
 
-<div id='mainDiv'>
+<!-- <div id='mainDiv'> -->
 
     <div id="tasksDiv" ng-controller = 'mondayAddController'>
 
@@ -9,6 +9,7 @@
         <div id='outputDiv' class='outputDiv'>
 
           <ul>
+            
               <li ng-repeat= "task in mondayTasks" class="active" id="taskDiv"> {{ task.task_name }}<br>
               <br><span><button type="button" id="completeButton" ng-click = "completeMondayTask(task.id); ">Smash</button></span>
               <br><button type="button" id="deleteButton" ng-click = "deleteMondayTask(task.id); ">Delete</button>
@@ -19,6 +20,6 @@
 
   </div>
 
-</div>
+<!-- </div> -->
 <!--
  {{task.value}} {{task.monday_total}} -->

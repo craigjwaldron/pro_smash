@@ -1,27 +1,37 @@
-<div id='mainDiv'>
+<!-- <div id='mainDiv'>
 
-  <div id="inputDiv">
+  <div id="inputDiv"> -->
 
     <!-- <div class="weekdays"> -->
 
       <table>
-      <thead>
-        <tbody>
+        <thead>
+          <tbody>
 
-        <tr>
-            <th>S</th>
-            <th>M</th>
-            <th>T</th>
-          </tr>
-        </thead>
-        <tbody>
           <tr>
 
-            <td ng-include="'partials/sunday.html'"></td>
-            <td ng-include="'partials/monday.html'"></td>
+              <th class="thBorder">S</th>
+              <th class="thBorder">M</th>
+              <th class="thBorder">T</th>
+              <th class="thBorder">W</th>
+              <th class="thBorder">T</th>
+              <th class="thBorder">F</th>
+              <th>S</th>
 
+            </tr>
+        </thead>
 
-          </tr>
+            <tr>
+
+              <td ng-include="'partials/sunday.html'"></td>
+              <td ng-include="'partials/monday.html'"></td>
+              <td ng-include="'partials/tuesday.html'"></td>
+              <td ng-include="'partials/wednesday.html'"></td>
+              <td ng-include="'partials/thursday.html'"></td>
+              <td ng-include="'partials/friday.html'"></td>
+              <td ng-include="'partials/saturday.html'"></td>
+
+            </tr>
         </table>
       </tbody>
 

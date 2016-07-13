@@ -1,4 +1,4 @@
-console.log('hello from monday.js');
+// console.log('hello from monday.js');
 
 
 // Add controller to add sunday task
@@ -9,24 +9,24 @@ myApp.controller('mondayAddController', [ '$scope', '$http', function ($scope, $
     $scope.addMondayTask = function (){
       console.log("button clicked");
 
-      // event.preventDefault();
-
     var newTask = {
-      name: $scope.nameIn,
-      completed: false,
-      day_due: 1,
-      week_due: 1,
-      value: 1,
-      sunday_total: 0
+        name: $scope.nameIn,
+        completed: false,
+        day_due: 1,
+        week_due: 1,
+        task_total_value: 1,
+        monday_total: 0
       };
 
-$scope.totalValue.push(newTask.value);
-console.log("VALUEEEEE", newTask.value);
+// $scope.totalValue.push(newTask);
+// console.log(newTask);
 
-for(var i in $scope.totalValue) { newTask.sunday_total += $scope.totalValue[i]; }
+$scope.totalValue.push(newTask.task_total_value);
+console.log("VALUEEEEE", newTask.task_total_value);
 
-console.log("TOOOOTASLLL", newTask.sunday_total);
-console.log("VLSKJLKDSJ", $scope.totalValue);
+for(var i in $scope.totalValue) { newTask.monday_total += $scope.totalValue[i]; }
+
+// console.log("Monday total tasks", newTask.monday_total);
 
     $http({
     method: 'POST',
@@ -38,8 +38,7 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
 
     });
       $scope.nameIn =''; // Reset input
-  };
-  // }]); // End of add controller
+  }; // End of add controller
 
 // -----------------------------------------------
 // List controller to show sunday tasks
@@ -47,14 +46,14 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
   $scope.showMondayTasks = function(){
     // event.preventDefault();
 
-    console.log( 'in get SUNDAY' );
+    // console.log( 'in get SUNDAY' );
   $http({
   method: 'GET',
   url:'mondayRoute/getMondayTasks'
 }).then(function( response ){
   $scope.mondayTasks = response.data;
   // console.log("Get the $scope", response.data);
-  console.log($scope.mondayTasks);
+  // console.log($scope.mondayTasks);
     }); // End of then function
   }; // End of $scope.showSundayTasks
 
@@ -83,6 +82,10 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
    $scope.deleteMondayTask = function(taskID){
      event.preventDefault();
 
+    //  for(var i in $scope.totalValue) { newTask.monday_total -= $scope.totalValue[i]; }
+
+     console.log("Monday total tasks AFTER DELETE", $scope.totalValue);
+
       console.log('deleteMondayTask.js');
      //  console.log("In da delete task: " + id);
 
@@ -99,4 +102,4 @@ console.log("VLSKJLKDSJ", $scope.totalValue);
       });
     };// End deleteSundayTask
 
-}]); // End of list controller
+}]); // End of controller
