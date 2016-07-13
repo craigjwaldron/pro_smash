@@ -13,12 +13,12 @@ myApp.controller('sundayAddController', [ '$scope', '$http', '$rootScope', funct
       // event.preventDefault();
 
     $scope.newTask = {
-      name: $scope.nameIn,
-      completed: false,
-      day_due: 0,
-      week_due: 1,
-      task_total_value: 1,
-      sunday_total: 0
+        name: $scope.nameIn,
+        completed: false,
+        day_due: 0,
+        week_due: 1,
+        task_total_value: 1,
+        sunday_total: 0,
       };
 
 // Pushing to $scope.totalValue array and adding
@@ -34,8 +34,6 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
   }).then(function(){
 
     $scope.showSundayTasks();
-    $scope.sundayCheckTask();
-
 
     });
       $scope.nameIn =''; // Reset input
@@ -43,6 +41,7 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
   // }]); // End of add controller
 
 // -----------------------------------------------
+
 // List controller to show sunday tasks
 
   $scope.showSundayTasks = function(){
@@ -55,8 +54,9 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
 }).then(function( response ){
   $scope.sundayTasks = response.data;
   // console.log("Get the $scope", response.data);
-  console.log($scope.sundayTasks);
-  $scope.sundayCheckTask();
+  // console.log("resp", response.data[0].id);
+  // console.log("ID", $scope.sundayTasks[4].id);
+
 
     }); // End of then function
   }; // End of $scope.showSundayTasks
@@ -79,7 +79,6 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
        data: sendID
      }).then(function(){
        $scope.showSundayTasks();
-       $scope.sundayCheckTask();
 
      });
    };// End completeSundayTask
@@ -94,44 +93,51 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
 
       var sendID = {id: taskID};
       $http({
+
         method: 'DELETE',
         url: 'sundayRoute/deleteSundayTask',
         data: sendID,
         headers: {'Content-Type': 'application/json;charset=utf-8'}
 
       }).then(function(){
+        
         $scope.showSundayTasks();
-        $scope.sundayCheckTask();
+        // $scope.sundayCheckTask();
 
       });
     };// End deleteSundayTask
 
-
     // -----------------------------------------------
 
-      $scope.sundayCheckTask = function(){
-
-          console.log("Da Tasks", $scope.sundayTasks);
-          console.log("DUE", $scope.newTask.day_due);
-          console.log("SUNDAY CHECK", $rootScope.count);
-          console.log("COMPLETED?", $scope.newTask.completed);
-
-        if ($scope.newTask.day_due < $rootScope.count && $scope.newTask.completed === false ){
-          // if ( $scope.newTask.completed == false ){
-
-          $http({
-            method: 'PUT',
-            url: 'sundayRoute/moveSundayTask',
-            data: $scope.newTask
-          }).then(function(){
-            // $scope.showSundayTasks();
-            // $scope.sundayCheckTask();
-
-          }); // End then....
-        } // end of if
-        else {
-          console.log("HI MOM");
-        }
-      }; // End completeSundayTask
+      // $scope.sundayCheckTask = function(){
+      //
+      //     console.log("Da Tasks", $scope.sundayTasks);
+      //     console.log("DUE", $scope.newTask.day_due);
+      //     console.log("SUNDAY CHECK", $rootScope.count);
+      //     console.log("COMPLETED?", $scope.newTask.completed);
+      //     // console.log("ID?", $scope.sundayTasks[4].id);
+      //
+      //   if ($scope.newTask.day_due < $rootScope.count && $scope.newTask.completed === false ){
+      //
+      //       // for (var i = 0; i <$scope.sundayTasks.length; i++) {
+      //       //   $scope.sundayTasks[i].id;
+      //       // }
+      //
+      //     $http({
+      //
+      //       method: 'PUT',
+      //       url: 'sundayRoute/moveSundayTask',
+      //       data: $scope.newTask,
+      //
+      //     }).then(function(){
+      //       // $scope.showSundayTasks();
+      //       // $scope.sundayCheckTask();
+      //
+      //     }); // End then....
+      //   } // end of if
+      //   else {
+      //     console.log("HI MOM");
+      //   }
+      // }; // End completeSundayTask
 
     }]); // End of list controller

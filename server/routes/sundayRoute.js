@@ -30,7 +30,7 @@ router.post ( "/sundayTask", function ( req, res ){
 // COMPLETE Task
 // Send new task to data base
 router.put ( '/completeSundayTask', function ( req, res ){
-  console.log("TASK SMASHEDDDDD!!!!");
+  console.log("TASK SMASHEDDDDD!!!!!!");
   pg.connect( connectionString, function( err, client, done ){
     // console.log("Hello" + id);
     // console.log("Hello" + task.id);
@@ -95,16 +95,17 @@ router.get('/getSundayTasks', function( req, res){
 }); // End of app.get
 
 
-
 // --------------------------------------------------------
+
 // Send new task to data base
 router.put ( '/moveSundayTask', function ( req, res ){
   console.log("CHECKED BRO");
   console.log("TASK TO BE MOVED", req.body.name);
+  console.log("DA ID BE");
 
   // pg.connect( connectionString, function( err, client, done ){
 
-    // var query =  client.query ( 'UPDATE sunday_table SET completed=true where id=' + req.body.id + ';' );
+  //   var query =  client.query ( 'INSERT INTO monday_table (id) SELECT id=' +req.body.id+ '; FROM sunday_table' );
   // done();
   //   res.end();
   // }); // End of pg
