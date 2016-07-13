@@ -6,7 +6,7 @@ myApp.controller('dayController', [ '$scope', '$rootScope', '$http', function ($
   	console.log('BUTTON CLICKED');
 
   $rootScope.count++;
-  console.log($rootScope.count);
+  console.log("SOPE", $rootScope.count);
 
   };
 }]);

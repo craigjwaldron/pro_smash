@@ -1,4 +1,3 @@
-// console.log('hello from sunday.js');
 
 // Add controller to add sunday task
 myApp.controller('sundayAddController', [ '$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
@@ -9,8 +8,6 @@ myApp.controller('sundayAddController', [ '$scope', '$http', '$rootScope', funct
 
     $scope.addSundayTask = function (){
       console.log("button clicked");
-
-      // event.preventDefault();
 
     $scope.newTask = {
         name: $scope.nameIn,
@@ -64,14 +61,13 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
 
   $scope.showSundayTasks();
 
-
   // -----------------------------------------------
 
   $scope.completeSundayTask = function(taskID){
     // event.preventDefault();
 
      console.log('completeSundayTask.js');
-     console.log('button clicked');
+     console.log('button cl');
     //  console.log("In da delete task: " + id);
      var sendID = {id: taskID};
      $http({
@@ -80,6 +76,7 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
        data: sendID
      }).then(function(){
        $scope.showSundayTasks();
+       $scope.sundayCheckTask();
 
      });
    };// End completeSundayTask
@@ -112,12 +109,13 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
 
       $scope.sundayCheckTask = function(){
 
-          console.log("Da Tasks", $scope.sundayTasks);
-          console.log("DUE", $scope.newTask.day_due);
+          // console.log("Da Tasks", $scope.sundayTasks);
+          // console.log("DUE", $scope.newTask.day_due);
           console.log("SUNDAY CHECK", $rootScope.count);
-          console.log("COMPLETED?", $scope.newTask.completed);
+          // console.log("COMPLETED?", $scope.newTask.completed);
           // console.log("ID?", $scope.sundayTasks[4].id);
 
+          /// scope
         if ($scope.newTask.day_due < $rootScope.count && $scope.newTask.completed === false ){
 
             // for (var i = 0; i <$scope.sundayTasks.length; i++) {
@@ -126,13 +124,13 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
 
           $http({
 
-            method: 'PUT',
+            method: 'POST',
             url: 'sundayRoute/moveSundayTask',
             data: $scope.newTask,
 
           }).then(function(){
             $scope.showSundayTasks();
-            // $scope.sundayCheckTask();
+            $scope.showMondayTasks();
 
           }); // End then....
         } // end of if

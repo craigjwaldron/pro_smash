@@ -1,10 +1,19 @@
 
 
-
+<!--
 <div id='mainDiv'>
 
+</div>
 
-    <div id="tasksDiv" ng-controller = "sundayAddController">
+  <div ng-controller="MyCtrl">
+  <button ng-click='toggleModal()'>Open Modal Dialog</button>
+  <modal-dialog show='modalShown' width='750px' height='60%'>
+    <p>Modal Content Goes here<p>
+  </modal-dialog>
+
+</div> -->
+
+    <div modalDialog id="tasksDiv" ng-controller = "sundayAddController">
 
       <span><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
       <button type="button" name="submitTask" id="submitTask" ng-click="addSundayTask();   $event.stopPropagation()">+</button>
@@ -14,16 +23,33 @@
           <ul>
 
               <li ng-repeat= "task in sundayTasks" class="active" id="taskDiv"  style="vertical-align:center;"> {{ task.task_name }}<br>
+              <br><span><button style="border:none;" type="button" id="completeButton" ng-click = "completeSundayTask(task.id);" data-toggle="modal" data-target="#myModal">Smash</button></span>
+              <br><button  style="border:none;" type="button" id="deleteButton" ng-click = "deleteSundayTask(task.id)">Delete</button>
 
-              <br><span><button style="border:none;" type="button" id="completeButton" ng-click = "completeSundayTask(task.id);   $event.stopPropagation()">Smash</button></span>
-              <br><button  style="border:none;" type="button" id="deleteButton" ng-click = "deleteSundayTask(task.id);   $event.stopPropagation()">Delete</button>
-
+            </div>
            </li>
           </ul>
         </div>
 
-
-
   </div>
 
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <!-- <h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
+      </div>
+      <div class="modal-body">
+        SMASHED!!!!!!!!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

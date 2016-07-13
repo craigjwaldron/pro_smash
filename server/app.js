@@ -29,7 +29,6 @@ var fridayRoute = require('./routes/fridayRoute');
 var saturdayRoute = require('./routes/saturdayRoute');
 
 
-
 app.use(bodyParser.json());
 
 // Setting static page
