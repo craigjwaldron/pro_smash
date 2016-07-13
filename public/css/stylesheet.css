@@ -1,11 +1,12 @@
 
 body {
 	margin: 30px;
-	/*background: linear-gradient(45deg, #49a09d, #5f2c82);*/
+	background: linear-gradient(45deg, #43cea2, #185a9d);
 	font-family: sans-serif;
 	font-weight: 100;
 	height: 1000px;
-	background: #324452;
+
+	/*background: #324452;*/
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -280,7 +281,7 @@ input:focus {
 }
 
 .login-container {
-	background: #97BDBF;
+	background: #ecf0f1;
   padding: 25px;
 }
 
