@@ -29,14 +29,15 @@ router.post ( "/sundayTask", function ( req, res ){
 
 // COMPLETE Task
 // Send new task to data base
-router.put ( '/completeSundayTask', function ( req, res ){
+router.post ( '/completeSundayTask', function ( req, res ){
   console.log("TASK SMASHEDDDDD!!!!!!");
   pg.connect( connectionString, function( err, client, done ){
     // console.log("Hello" + id);
     // console.log("Hello" + task.id);
     // console.log(req.body);
+    // client.query ( 'DELETE from sunday_table WHERE id=' +req.body.id+ ';' );
 
-    var query =  client.query ( 'UPDATE sunday_table SET completed=true where id=' + req.body.id + ';' );
+    client.query ( 'UPDATE sunday_table SET completed=true where id=' + req.body.id + ';' );
   done();
     res.end();
   }); // End of pg
@@ -45,7 +46,6 @@ router.put ( '/completeSundayTask', function ( req, res ){
 // --------------------------------------------------------
 
 // DELETE Task
-// Send new task to data base
 router.delete ( '/deleteSundayTask', function ( req, res ){
   console.log("TASK DELETED");
   pg.connect( connectionString, function( err, client, done ){
@@ -98,7 +98,7 @@ router.get('/getSundayTasks', function( req, res){
 // --------------------------------------------------------
 
 // Send new task to data base
-router.put ( '/moveSundayTask', function ( req, res ){
+router.post ( '/moveSundayTask', function ( req, res ){
   console.log("CHECKED BRO");
   console.log("TASK TO BE MOVED", req.body.name);
 
@@ -108,6 +108,37 @@ router.put ( '/moveSundayTask', function ( req, res ){
   // done();
   //   res.end();
   // }); // End of pg
+
+/////// TESTEROONIE
+  pg.connect( connectionString, function( err, client, done ){
+    console.log("TASK TO BE MOVED", req.body.name);
+
+  // var query =  client.query ( 'SELECT * FROM sunday_table' );
+  // done();
+  //   console.log( query );
+  //   res.end();
+  // }); // End of pg
+
+  var query = client.query( 'SELECT * FROM sunday_table' );
+    console.log( " -------------------- query: ", query );
+    // push each row in query into our results array
+    var rows = 0;
+    query.on( 'row', function ( row ){
+      if( row.task_name == req.body.name ){
+        console.log( 'found the dork named', row.task_name, ' id:', row.id );
+        // row is the record
+        client.query ( "INSERT INTO monday_table ( task_name, completed, day_due, week_due, task_total_value, monday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ row.task_name, row.completed, row.day_due, row.week_due, row.task_total_value, row.sunday_total ] );
+        client.query ( 'DELETE from sunday_table WHERE id=' +row.id+ ';' );
+
+      }
+      // results.push( row );
+    }); // end query push
+    query.on( 'end', function (){
+
+      res.send();
+    });
+});
+
 }); // End of post
 
 module.exports = router;

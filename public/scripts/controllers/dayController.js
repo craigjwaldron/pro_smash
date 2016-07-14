@@ -1,12 +1,11 @@
 myApp.controller('dayController', [ '$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
 
-  $rootScope.count = 1;
+  $rootScope.count = 0;
 
   $scope.iterate = function(){
-  	console.log('BUTTON CLICKED');
 
   $rootScope.count++;
-  console.log($rootScope.count);
+  console.log('Current day is: ', $rootScope.count);
 
   };
 }]);

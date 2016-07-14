@@ -1,3 +1,5 @@
+
+
 myApp.controller('HomeController', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
   console.log('home controller running');
   $scope.message = "Home Controller!";
