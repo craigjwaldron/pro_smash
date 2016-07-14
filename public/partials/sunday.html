@@ -8,7 +8,7 @@
 
   <ul class="unstyled centered">
 
-      <li ng-repeat= "task in sundayTasks" class="control-inline" id="oneTask"> <span>{{ task.task_name }}<br>
+      <li ng-repeat= "task in sundayTasks" class="control-inline" id="oneTask"> <span class="taskName">{{ task.task_name }}</span><br>
 
               <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeSundayTask(task.id)" id="smashButton" >
 
