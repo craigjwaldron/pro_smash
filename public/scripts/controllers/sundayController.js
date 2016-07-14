@@ -130,7 +130,6 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
 
           }).then(function(){
             $scope.showSundayTasks();
-            $scope.showMondayTasks();
 
           }); // End then....
         } // end of if

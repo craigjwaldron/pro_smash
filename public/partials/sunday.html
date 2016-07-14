@@ -1,18 +1,5 @@
 
 
-<!--
-<div id='mainDiv'>
-
-</div>
-
-  <div ng-controller="MyCtrl">
-  <button ng-click='toggleModal()'>Open Modal Dialog</button>
-  <modal-dialog show='modalShown' width='750px' height='60%'>
-    <p>Modal Content Goes here<p>
-  </modal-dialog>
-
-</div> -->
-
     <div modalDialog id="tasksDiv" ng-controller = "sundayAddController">
 
       <span><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
@@ -37,7 +24,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -49,6 +36,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>

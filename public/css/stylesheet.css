@@ -1,3 +1,9 @@
+@media screen and (min-width: 768px) {
+
+	#myModal4 .modal-dialog  {width:900px;}
+
+}
+
 
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
@@ -303,7 +309,7 @@ input:focus {
 /*LOGIN STYLING*/
 
 .login {
-  width: 400px;
+  width: 700px ;
   margin: 16px auto;
   font-size: 16px;
 	padding: 60px;

@@ -126,7 +126,7 @@ router.post ( '/moveSundayTask', function ( req, res ){
       if( row.task_name == req.body.name ){
         console.log( 'found the dork named', row.task_name, ' id:', row.id );
         // row is the reorcd
-        client.query ( "INSERT INTO monday_table ( task_name, completed, day_due, week_due, task_total_value, monday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ row.task_name, row.completed, 2, row.week_due, row.task_total_value, row.sunday_total ] );
+        client.query ( "INSERT INTO monday_table ( task_name, completed, day_due, week_due, task_total_value, monday_total ) VALUES ( $1, $2, $3, $4, $5, $6 )", [ row.task_name, row.completed, row.day_due, row.week_due, row.task_total_value, row.sunday_total ] );
         client.query ( 'DELETE from sunday_table WHERE id=' +row.id+ ';' );
 
       }
