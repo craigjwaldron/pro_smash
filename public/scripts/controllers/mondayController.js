@@ -46,7 +46,7 @@ for(var i in $scope.totalValue) { newTask.monday_total += $scope.totalValue[i]; 
   $scope.showMondayTasks = function(){
     // event.preventDefault();
 
-    // console.log( 'in get SUNDAY' );
+    console.log( 'in get SUNDAY' );
   $http({
   method: 'GET',
   url:'mondayRoute/getMondayTasks'

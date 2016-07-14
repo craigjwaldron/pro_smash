@@ -1,11 +1,23 @@
 
 
-myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
+myApp.controller('LoginController', ['$scope', '$http', '$window', '$location',
+function($scope, $http, $window, $location) {
+
+  // angular.module('classApp', [])
+  //
+  // .controller('mainController', function($scope) {
+  //
+  // });
+
+
+
     $scope.user = {
       username: '',
       password: ''
     };
+
     $scope.message = '';
+
 
     $scope.login = function() {
       if($scope.user.username === '' || $scope.user.password === '') {

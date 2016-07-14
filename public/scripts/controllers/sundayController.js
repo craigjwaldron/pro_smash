@@ -1,8 +1,12 @@
 
-// Add controller to add sunday task
-myApp.controller('sundayAddController', [ '$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
+
+// Add controller
+myApp.controller('sundayAddController', [ '$scope', '$http', '$rootScope','dayController',
+ function ($scope, $http, $rootScope, dayController) {
+  console.log(dayController);
   console.log("SUNDAY CHECK", $rootScope.count);
+
 
   $scope.totalValue=[];
 
@@ -38,7 +42,7 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
   };
   // }]); // End of add controller
 
-// -----------------------------------------------
+// SHOW TASKS -----------------------------------------------
 
 // List controller to show sunday tasks
 
@@ -51,91 +55,88 @@ console.log("Sunday total tasks", $scope.newTask.sunday_total);
   url:'sundayRoute/getSundayTasks'
 }).then(function( response ){
   $scope.sundayTasks = response.data;
-  // console.log("Get the $scope", response.data);
-  // console.log("resp", response.data[0].id);
-  // console.log("ID", $scope.sundayTasks[4].id);
-
 
     }); // End of then function
   }; // End of $scope.showSundayTasks
 
   $scope.showSundayTasks();
 
-  // -----------------------------------------------
+// COMPLETE TASK -----------------------------------------------
 
   $scope.completeSundayTask = function(taskID){
     // event.preventDefault();
+        $scope.isActive = false;
+
+        $scope.activeButton = function() {
+            $scope.isActive = !$scope.isActive;
+          };
 
      console.log('completeSundayTask.js');
      console.log('button cl');
     //  console.log("In da delete task: " + id);
      var sendID = {id: taskID};
      $http({
-       method: 'PUT',
+       method: 'POST',
        url: 'sundayRoute/completeSundayTask',
        data: sendID
      }).then(function(){
-       $scope.showSundayTasks();
-       $scope.sundayCheckTask();
+      //  $scope.showSundayTasks();
+      //  $scope.sundayCheckTask();
 
      });
-   };// End completeSundayTask
+   }; // End completeSundayTask
 
-  // -----------------------------------------------
+  // DELETE TASK (OPTIONAL FEATURE) -----------------------------------------------
 
-   $scope.deleteSundayTask = function(taskID){
-     event.preventDefault();
+  //  $scope.deleteSundayTask = function(taskID){
+  //    event.preventDefault();
+   //
+  //     console.log('deleteSundayTask.js');
+  //    //  console.log("In da delete task: " + id);
+   //
+  //     var sendID = {id: taskID};
+  //     $http({
+   //
+  //       method: 'DELETE',
+  //       url: 'sundayRoute/deleteSundayTask',
+  //       data: sendID,
+  //       headers: {'Content-Type': 'application/json;charset=utf-8'}
+   //
+  //     }).then(function(){
+   //
+  //       $scope.showSundayTasks();
+  //       // $scope.sundayCheckTask();
+   //
+  //     });
+  //   };// End deleteSundayTask
 
-      console.log('deleteSundayTask.js');
-     //  console.log("In da delete task: " + id);
 
-      var sendID = {id: taskID};
-      $http({
+// CHECK TASK COMPLETION -----------------------------------------------
 
-        method: 'DELETE',
-        url: 'sundayRoute/deleteSundayTask',
-        data: sendID,
-        headers: {'Content-Type': 'application/json;charset=utf-8'}
+            $scope.sundayCheckTask = function(){
 
-      }).then(function(){
+                console.log("DUE", $scope.newTask.day_due);
+                console.log("SUNDAY CHECK", $rootScope.count);
 
-        $scope.showSundayTasks();
-        // $scope.sundayCheckTask();
+                /// scope
+              if ($scope.newTask.day_due < $rootScope.count && $scope.newTask.completed === false ){
 
-      });
-    };// End deleteSundayTask
+                $http({
 
-    // -----------------------------------------------
+                  method: 'POST',
+                  url: 'sundayRoute/moveSundayTask',
+                  data: $scope.newTask,
 
-      $scope.sundayCheckTask = function(){
+                }).then(function(){
+                  $scope.showSundayTasks();
 
-          // console.log("Da Tasks", $scope.sundayTasks);
-          // console.log("DUE", $scope.newTask.day_due);
-          console.log("SUNDAY CHECK", $rootScope.count);
-          // console.log("COMPLETED?", $scope.newTask.completed);
-          // console.log("ID?", $scope.sundayTasks[4].id);
+                }); // End then....
+              } // end of if
 
-          /// scope
-        if ($scope.newTask.day_due < $rootScope.count && $scope.newTask.completed === false ){
+              else {
+                console.log("Task still has time");
+              }
 
-            // for (var i = 0; i <$scope.sundayTasks.length; i++) {
-            //   $scope.sundayTasks[i].id;
-            // }
-
-          $http({
-
-            method: 'POST',
-            url: 'sundayRoute/moveSundayTask',
-            data: $scope.newTask,
-
-          }).then(function(){
-            $scope.showSundayTasks();
-
-          }); // End then....
-        } // end of if
-        else {
-          console.log("HI MOM");
-        }
-      }; // End completeSundayTask
+            }; // End completeSundayTask
 
     }]); // End of list controller
