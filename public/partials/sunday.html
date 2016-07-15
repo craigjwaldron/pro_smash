@@ -8,11 +8,11 @@
 
   <ul class="unstyled centered">
 
-      <li ng-repeat= "task in sundayTasks" class="control-inline" id="oneTask"> <span class="taskName">{{ task.task_name }}</span><br>
+      <li ng-repeat= "task in sundayTasks" class="control-inline" id="oneTask"> <span class="taskName"><h1>{{ task.task_name }}</h1></span><br>
 
               <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeSundayTask(task.id)" id="smashButton" >
 
-        <div class="jumbotron text-center">
+        <div class="smash">
           <h2 ng-class="{ 'text-danger': wrong, bubble: insane }">
             SMASH!
           </h2>

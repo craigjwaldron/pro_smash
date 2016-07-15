@@ -5,8 +5,15 @@
   <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2>
 
   <form ng-submit="registerUser()" class="login-container">
-    <p><input type="username" placeholder="Username" ng-model="user.username"></p>
-    <p><input type="password" placeholder="Password" ng-model="user.password"></p>
+
+    <h1 class="formLogo">PRO<strong>SMASH</strong></h1>
+
+    <p><input type="password" placeholder="FIRST NAME" ng-model="user.password"></p>
+    <p><input type="password" placeholder="LAST NAME" ng-model="user.password"></p>
+    <p><input type="username" placeholder="USERNAME" ng-model="user.username"></p>
+    <p><input type="password" placeholder="PASSWORD" ng-model="user.password"></p>
+    <p><input type="password" placeholder="EMAIL" ng-model="user.password"></p>
+
     <p><input type="submit" value="COMPLETE REGISTRATION"></p>
 
     <p><a type="submit" class="reg" href="#login">CANCEL</a></p>

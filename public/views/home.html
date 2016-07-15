@@ -1,4 +1,19 @@
+<input type='checkbox' id='sideToggle1' hidden>
+<aside class='sideMenu left'>
+  <h2>PROSMASH MENU</h2>
+  
+  <ul>
+    <p>HELLO</p>
+    <li class="menuLi"><a href='#' data-value='item 1'>item 1</a></li>
+    <li class="menuLi"><a href='#login' data-value='very long item 2'>very long item 2</a></li>
+    <li class="menuLi"><a href='#' data-value='long item 3'>long item 3</a></li>
+    <li class="menuLi"><a href='#' data-value='item 4'>item 4</a></li>
+  </ul>
 
+</aside>
+
+<div id='contentWrap'>
+    <label class='menuBtn fa fa-bars' for='sideToggle1' ></label>
 
       <table>
         <thead>
@@ -7,7 +22,8 @@
 
               <h1 class="tableHeader">PRO<strong>SMASH</strong></h1>
 
-              <h1 class="secondHeader" ng-controller="dayController"><button type="button" name="button" ng-click="iterate()">Next Day</button></h1>
+              <!-- <h1 class="secondHeader" ng-controller="dayController"><button type="button" name="button" ng-click="iterate()">Next Day</button></h1>
+              <h1 class="secondHeader" ng-controller="sundayAddController"><button type="button" name="button" ng-click="sundayCheckTask()">Check Tasks</button></h1> -->
 
               <th class="thBorder">S</th>
               <th class="thBorder">M</th>
@@ -34,3 +50,4 @@
             </tr>
         </table>
       </tbody>
+</div>
