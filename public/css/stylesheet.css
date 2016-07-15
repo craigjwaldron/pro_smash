@@ -1,3 +1,145 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/*
+html {
+  height: 100%;
+}*/
+
+/*p {
+  padding: 10px 0;
+}*/
+
+body {
+  height: 100%;
+  font-family: arial;
+  position: relative;
+  background: #222;
+  overflow-x: hidden;
+}
+
+.menuLi{
+  background: #2C3E50;
+}
+
+.logOut {
+  background: #97BDBF;
+  border-color: transparent;
+  color: #324452;
+  cursor: pointer;
+}
+
+.logOut {
+  background: #83A4A6;
+}
+
+.floatl {
+  float: left;
+}
+
+/* Side menu */
+.sideMenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 250px;
+  background: #2C3E50;
+  color: #FFF;
+  padding: 20px;
+  text-transform: uppercase;
+}
+.sideMenu.left {
+  opacity: .5;
+  transform: translatex(-40px);
+  transition: 0.33s cubic-bezier(0.7, 0.15, 0.36, 1);
+}
+
+.sideMenu > ul {
+  padding: 0;
+  list-style: none;
+  margin: 20px 0;
+}
+.sideMenu > ul > li {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.sideMenu > ul > li a {
+  color: #CCC;
+  text-decoration: none;
+  display: block;
+  line-height: 3.2;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin: 0 -10px;
+  padding: 0 20px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sideMenu > ul > li a:hover {
+  color: #222;
+}
+
+.sideMenu > ul > li a::before {
+  content: attr(data-value);
+  /*color: #FFF;*/
+  float: left;
+  width: 250px;
+  margin-left: -250px;
+}
+
+/* Toggle button */
+.menuBtn {
+  display: inline-block;
+  background: #f1103a;
+  border-radius: 50px;
+  color: #FFF;
+  cursor: pointer;
+  display: block;
+  font: bold 1.7em/24px Courier New;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  text-shadow: 0 -5px, 0 5px;
+  transition: 0.15s;
+}
+.menuBtn:hover {
+  background: #222;
+}
+
+/* Content handing */
+#contentWrap {
+  min-height: 100%;
+  height: 1000px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(45deg, #43cea2, #185a9d);
+  padding: 20px;
+  transition: 0.33s cubic-bezier(0.7, 0.15, 0.36, 1);
+}
+#sideToggle1:checked ~ #contentWrap {
+  border-radius: 8px;
+  transform: translatex(250px);
+}
+#sideToggle2:checked ~ #contentWrap {
+  transform: translatex(-250px);
+  border-radius: 8px;
+}
+
+#sideToggle1:checked ~ .sideMenu.left {
+  opacity: 1;
+  transform: none;
+}
+
+
+
+
 .taskName{
   padding: 12px;
   margin: 12px;
@@ -228,7 +370,7 @@ label {
 
 
 body {
-	margin: 30px;
+	margin: 0px;
 	background: linear-gradient(45deg, #43cea2, #185a9d);
 	font-family: sans-serif;
 	font-weight: 100;
@@ -327,7 +469,9 @@ td {
   }
 }
 
-
+.smash{
+  background-color: lightgray;
+}
 
 .weekdays {
   display: inline-flex; /* or inline-flex */
@@ -398,10 +542,10 @@ h1 {
   /*background: #677077;*/
   color: white;
   margin: 0;
-  padding: 20px;
+  padding: 10px;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 350;
   max-width: 100%;
   letter-spacing: 1px;
@@ -427,7 +571,7 @@ li {
   list-style-type: none;
   max-width: 100%;
   opacity: 80%;
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background: blue;
 }
 
 li:nth-child(2n) {

@@ -3,14 +3,6 @@
 myApp.controller('LoginController', ['$scope', '$http', '$window', '$location',
 function($scope, $http, $window, $location) {
 
-  // angular.module('classApp', [])
-  //
-  // .controller('mainController', function($scope) {
-  //
-  // });
-
-
-
     $scope.user = {
       username: '',
       password: ''
@@ -18,14 +10,18 @@ function($scope, $http, $window, $location) {
 
     $scope.message = '';
 
-
     $scope.login = function() {
       if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Enter your username and password!";
       } else {
-        // console.log('sending to server...', $scope.user);
+        console.log('sending to server...', $scope.user);
         $http.post('/', $scope.user).then(function(response) {
           if(response.data.username) {
+
+            $window.localStorage.setItem('username', response.data.username);
+// set to $scope
+            $scope.userName = $window.localStorage.getItem('username');
+
             // console.log('success: ', response.data);
             // location works with SPA (ng-route)
             $location.path('/home');
