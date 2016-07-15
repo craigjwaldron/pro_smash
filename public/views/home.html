@@ -1,13 +1,21 @@
 <input type='checkbox' id='sideToggle1' hidden>
 <aside class='sideMenu left'>
-  <h2>PROSMASH MENU</h2>
-  
+  <h2>PROSMASH USER</h2>
+
   <ul>
-    <p>HELLO</p>
+
+    <!-- <small><em>Object (changes type based on value)</em></small>
+    <uib-progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></uib-progressbar>
+
+    <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
+    <uib-progress><uib-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></uib-bar></uib-progress> -->
+    <p>{{userName}}</p>
     <li class="menuLi"><a href='#' data-value='item 1'>item 1</a></li>
     <li class="menuLi"><a href='#login' data-value='very long item 2'>very long item 2</a></li>
     <li class="menuLi"><a href='#' data-value='long item 3'>long item 3</a></li>
     <li class="menuLi"><a href='#' data-value='item 4'>item 4</a></li>
+    <button class="logOut" ng-click="logout()">Log Out</button>
+
   </ul>
 
 </aside>

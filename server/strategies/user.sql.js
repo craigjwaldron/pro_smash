@@ -26,7 +26,7 @@ passport.deserializeUser(function(id, done) {
       var query = client.query("SELECT * FROM users WHERE id = $1", [id]);
 
       query.on('row', function (row) {
-        console.log('User row', row);
+        console.log('User row', row.username);
         user = row;
         done(null, user);
       });

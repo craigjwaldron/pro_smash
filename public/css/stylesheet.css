@@ -26,6 +26,17 @@ body {
   background: #2C3E50;
 }
 
+.logOut {
+  background: #97BDBF;
+  border-color: transparent;
+  color: #324452;
+  cursor: pointer;
+}
+
+.logOut {
+  background: #83A4A6;
+}
+
 .floatl {
   float: left;
 }
