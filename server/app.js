@@ -15,13 +15,17 @@ var connectionString = "postgres://localhost:5432/pro_smash_tasks";
 var passport = require('./strategies/user.sql.js');
 var session = require('express-session');
 
+var moment = require('moment');
+moment().format();
+
 //Route inclusion
 var login = require('./routes/login');
 var register = require('./routes/register');
 var router = require('./routes/routes');
+
 // //Route inclusion
 var sundayRoute = require('./routes/sundayRoute');
-var mondayRoute = require('./routes/mondayRoute');
+var mondayRoute = require('./routes/sundayRoute');
 var tuesdayRoute = require('./routes/tuesdayRoute');
 var wednesdayRoute = require('./routes/wednesdayRoute');
 var thursdayRoute = require('./routes/thursdayRoute');

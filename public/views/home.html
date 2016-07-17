@@ -1,6 +1,7 @@
 <input type='checkbox' id='sideToggle1' hidden>
 <aside class='sideMenu left'>
-  <h2>PROSMASH USER</h2>
+
+  <center><img class="photo" src="photos/p1.png" align="middle"></center>
 
   <ul>
 
@@ -9,7 +10,11 @@
 
     <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
     <uib-progress><uib-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></uib-bar></uib-progress> -->
+
     <p>{{userName}}</p>
+    <div ng-controller = "LoginController">
+    <p>{{ currentDate }}</p>
+    </div>
     <li class="menuLi"><a href='#' data-value='item 1'>item 1</a></li>
     <li class="menuLi"><a href='#login' data-value='very long item 2'>very long item 2</a></li>
     <li class="menuLi"><a href='#' data-value='long item 3'>long item 3</a></li>
@@ -24,14 +29,17 @@
     <label class='menuBtn fa fa-bars' for='sideToggle1' ></label>
 
       <table>
+
         <thead>
+
           <tbody>
+
             <tr>
 
               <h1 class="tableHeader">PRO<strong>SMASH</strong></h1>
 
-              <!-- <h1 class="secondHeader" ng-controller="dayController"><button type="button" name="button" ng-click="iterate()">Next Day</button></h1>
-              <h1 class="secondHeader" ng-controller="sundayAddController"><button type="button" name="button" ng-click="sundayCheckTask()">Check Tasks</button></h1> -->
+              <h1 class="secondHeader" ng-controller="dayController"><button type="button" name="button" ng-click="iterate()">Next Day</button></h1>
+              <h1 class="secondHeader" ng-controller="mainController"><button type="button" name="button" ng-click="sundayCheckTask()">Check Tasks</button></h1>
 
               <th class="thBorder">S</th>
               <th class="thBorder">M</th>
@@ -56,6 +64,9 @@
               <td ng-include="'partials/saturday.html'"></td>
 
             </tr>
+
         </table>
+
       </tbody>
+
 </div>
