@@ -1,4 +1,19 @@
 /* Reset */
+.clock {
+  height: 100px;
+  width: 70%;
+  line-height: 100px;
+  margin: 150px auto 0;
+  padding: 0 50px;
+  background: #222;
+  color: #eee;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 7px #222;
+  text-shadow: 0 0 3px #fff;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -22,20 +37,35 @@ body {
   overflow-x: hidden;
 }
 
+.photo{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
 .menuLi{
   background: #2C3E50;
 }
 
 .logOut {
+  font-size: 16px;
+  background: #97BDBF;
+  border-color: transparent;
+  color: #324452;
+  cursor: pointer;
+  width: 70%;
+  height: 50px;
+  margin-top: 20px;
   background: #97BDBF;
   border-color: transparent;
   color: #324452;
   cursor: pointer;
 }
 
-.logOut {
+.logOut:hover {
   background: #83A4A6;
 }
+
 
 .floatl {
   float: left;
@@ -202,17 +232,15 @@ body {
 }*/
 
 
-
-
 .bubble {
   animation:pulse 1s;
   -webkit-animation:pulse 1s;
-  background: #F64747;
+  background: #E74C3C;
 }
 
 @keyframes pulse {
   0%      { transform:scale(1); }
-  25%     { transform:scale(8); }
+  25%     { transform:scale(3); }
   75%     { transform:scale(1); }
 }
 @-webkit-keyframes pulse {
@@ -390,6 +418,11 @@ table {
   width: 100%;
 }
 
+.liBorder{
+  border-right: 1px solid rgba(52, 73, 94, 1);
+
+}
+
 .thBorder{
 	border-right: 1px;
 	border-right-color: lightgray;
@@ -470,8 +503,10 @@ td {
 }
 
 .smash{
-  background-color: lightgray;
+  background-color: #eee;
+  color: #E36F67;
 }
+
 
 .weekdays {
   display: inline-flex; /* or inline-flex */
@@ -570,8 +605,7 @@ ul {
 li {
   list-style-type: none;
   max-width: 100%;
-  opacity: 80%;
-  background: blue;
+  background: #2c3e50;
 }
 
 li:nth-child(2n) {

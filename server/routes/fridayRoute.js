@@ -28,7 +28,7 @@ router.post ( "/fridayTask", function ( req, res ){
 
 // COMPLETE Task
 // Send new task to data base
-router.put ( '/completeFridayTask', function ( req, res ){
+router.post ( '/completeFridayTask', function ( req, res ){
   console.log("TASK SMASHEDDDDD!!!!");
   pg.connect( connectionString, function( err, client, done ){
     // console.log("Hello" + id);

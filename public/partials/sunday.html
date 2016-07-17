@@ -1,53 +1,30 @@
 
-<div modalDialog id="tasksDiv" ng-controller = "sundayAddController">
+<div modalDialog id="tasksDiv" ng-controller = "mainController">
+  <!-- Task Enter Field -->
+  <span ng-style="myStyle"><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
+  <!-- Add Task Button -->
+    <button type="button" name="submitTask" id="submitTask" ng-click="addSundayTask()">+</button>
 
-<span ng-style="myStyle"><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
-<button type="button" name="submitTask" id="submitTask" ng-click="addSundayTask()">+</button>
+      <div id='outputDiv' class='outputDiv'>
+    <!-- Begin UL List -->
+        <ul class="unstyled centered">
+          <!-- Begin LI List -->
+            <li ng-repeat= "task in sundayTasks" ng-class="{ 'text-danger': wrong, bubble: insane }"  class="control-inline liBorder" id="oneTask"> <span class="taskName"><h1>{{ task.task_name }}</h1></span><br>
+                <!-- Smash Button -->
+                    <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeSundayTask(task.id)" id="smashButton" >
 
-<div id='outputDiv' class='outputDiv'>
+                  <div class="smash">
 
-  <ul class="unstyled centered">
+                    <h2 ng-class="{ 'text-danger': wrong, bubble: insane }" >
+                      SMASH!
+                    </h2>
 
-      <li ng-repeat= "task in sundayTasks" class="control-inline" id="oneTask"> <span class="taskName"><h1>{{ task.task_name }}</h1></span><br>
+                </div>
 
-              <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeSundayTask(task.id)" id="smashButton" >
+            </div>
+            <!-- End List -->
+          </li>
+          <!-- End List -->
+        </ul>
 
-        <div class="smash">
-          <h2 ng-class="{ 'text-danger': wrong, bubble: insane }">
-            SMASH!
-          </h2>
-        </div>
-
-    </div>
-   </li>
-  </ul>
 </div>
-
-
-
-
-
-<!--
-<div modalDialog id="tasksDiv" ng-controller = "sundayAddController">
-
-<span ng-style="myStyle"><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
-<button type="button" name="submitTask" id="submitTask" ng-click="addSundayTask()">+</button>
-
-<div id='outputDiv' class='outputDiv'>
-
-  <ul>
-
-      <li ng-repeat= "task in sundayTasks" class="oneTask" id="oneTask"> {{ task.task_name }}<br>
-
-              <input type="checkbox" ng-model="insane" ng-click = "completeSundayTask(task.id)" id="smashButton">
-
-        <div class="jumbotron text-center">
-          <h2 ng-class="{ 'text-danger': wrong, bubble: insane }">
-            SMASH!
-          </h2>
-        </div>
-
-    </div>
-   </li>
-  </ul>
-</div> -->

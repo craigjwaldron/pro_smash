@@ -48,4 +48,6 @@ function($scope, $http, $window, $location) {
         });
       }
     };
+    $scope.currentDate = moment().format("dddd, MMMM Do YYYY");
+
 }]);
