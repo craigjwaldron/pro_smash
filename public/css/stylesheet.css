@@ -387,6 +387,8 @@ label {
 	font-weight: 100;
 	font-size: 20px;
 	letter-spacing: 1px;
+  padding-left: 20px;
+  line-height: 30px;
 }
 
 
@@ -833,5 +835,4 @@ a:link {
 	font-size: 35px;
 	letter-spacing: 1px;
 	text-align: center;
-
 }
