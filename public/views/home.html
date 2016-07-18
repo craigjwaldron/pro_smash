@@ -11,9 +11,11 @@
     <h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
     <uib-progress><uib-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></uib-bar></uib-progress> -->
 
-    <p class="userNAME">{{userName}}</p>
+    <p class="userName">{{userName}}</p>
     <div ng-controller = "LoginController">
-    <p class="date">{{ currentDate }}</p>
+      <p class="date">{{ currentDate }}</p>
+      <h3 class="smashStats">SMASH STATS</h3>
+      <p class="smashes">{{ totalSmashes }} / {{ totalTasks }}</p>
     </div>
     <!-- <li class="menuLi"><a href='#' data-value='item 1'>item 1</a></li> -->
 

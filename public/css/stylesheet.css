@@ -18,8 +18,26 @@
   text-shadow: 0 0 3px #fff;
 }
 
+.smashes{
+  font-size: 22px;
+  padding-bottom: 20px;
+}
+
+.userName{
+  padding-bottom: 30px;
+}
+
+.smashStats{
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 18px;
+  color: #42caa2;
+}
+
 .date {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
    font-style: italic;
    font-size: 12px;
    font-weight: 100;
@@ -64,16 +82,16 @@ body {
   border-color: transparent;
   color: #324452;
   cursor: pointer;
-  width: 70%;
-  height: 50px;
+  width: 60%;
+  height: 40px;
   margin-top: 20px;
-  background: #97BDBF;
   border-color: transparent;
   color: #324452;
   cursor: pointer;
 }
 
 .logOut:hover {
+  color: white;
   background: #83A4A6;
 }
 
@@ -186,10 +204,15 @@ body {
 }
 
 .taskName{
-  padding: 12px;
-  margin: 12px;
-  line-height: 5px;
+  padding: 0px;
+  margin: 5px;
+  /*line-height: 2;*/
+  line-height: 0px;
   /*color: white;*/
+}
+
+.taskName2 {
+  padding: 10px;
 }
 
 .checkbox {
@@ -430,6 +453,8 @@ body {
 table {
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
+
 }
 
 .liBorder{
@@ -455,6 +480,8 @@ th,
 td {
 	vertical-align: baseline;
 	padding: 0px;
+  word-break: break-all;
+
   /*text-align: center;*/
 
 }
@@ -523,7 +550,7 @@ h4 {
 
 .smash2 {
   color: white;
-  font-size: 18px;
+  font-size: 18tablepx;
   text-transform: uppercase;
 }
 
