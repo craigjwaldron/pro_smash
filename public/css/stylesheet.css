@@ -1,4 +1,9 @@
 /* Reset */
+
+.outputDiv {
+  /*height: 500px;*/
+}
+
 .clock {
   height: 100px;
   width: 70%;
@@ -13,6 +18,12 @@
   text-shadow: 0 0 3px #fff;
 }
 
+.date {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+   font-style: italic;
+   font-size: 12px;
+   font-weight: 100;
+}
 
 * {
   margin: 0;
@@ -71,7 +82,7 @@ body {
   float: left;
 }
 
-/* Side menu */
+/* Side  */
 .sideMenu {
   position: fixed;
   top: 0;
@@ -127,20 +138,27 @@ body {
 /* Toggle button */
 .menuBtn {
   display: inline-block;
-  background: #f1103a;
+  background: #336E7B;
   border-radius: 50px;
   color: #FFF;
   cursor: pointer;
   display: block;
-  font: bold 1.7em/24px Courier New;
+  margin-bottom: 10px;
+  /*font: bold 1.7em/24px Courier New;*/
   width: 36px;
   height: 36px;
   text-align: center;
-  text-shadow: 0 -5px, 0 5px;
+  vertical-align: middle;
+  /*text-shadow: 0 -5px, 0 5px;*/
   transition: 0.15s;
 }
 .menuBtn:hover {
   background: #222;
+}
+
+.stack{
+    vertical-align: middle;
+    padding: 8px;
 }
 
 /* Content handing */
@@ -154,7 +172,7 @@ body {
   transition: 0.33s cubic-bezier(0.7, 0.15, 0.36, 1);
 }
 #sideToggle1:checked ~ #contentWrap {
-  border-radius: 8px;
+  border-radius: 3px;
   transform: translatex(250px);
 }
 #sideToggle2:checked ~ #contentWrap {
@@ -167,13 +185,11 @@ body {
   transform: none;
 }
 
-
-
-
 .taskName{
   padding: 12px;
   margin: 12px;
   line-height: 5px;
+  /*color: white;*/
 }
 
 .checkbox {
@@ -200,7 +216,7 @@ body {
   vertical-align: text-top;
   width: 60px;
   height: 60px;
-  background: white;
+  /*background: white;*/
 }
 /*:not(#foo) .styled-checkbox:focus + label:before, :not(#foo) .styled-checkbox:hover + label:before {
   background: #f35429;*/
@@ -236,6 +252,7 @@ body {
   animation:pulse 1s;
   -webkit-animation:pulse 1s;
   background: #E74C3C;
+  color: #E36F67;
 }
 
 @keyframes pulse {
@@ -262,7 +279,6 @@ body {
 
 .oneTask{
   /*background-color: blue;*/
-  opacity: 80%;
 }
 
 .secondHeader {
@@ -395,8 +411,6 @@ label {
 }
 
 
-
-
 body {
 	margin: 0px;
 	background: linear-gradient(45deg, #43cea2, #185a9d);
@@ -419,8 +433,8 @@ table {
 }
 
 .liBorder{
-  border-right: 1px solid rgba(52, 73, 94, 1);
-
+  /*color: white;*/
+  /*border-right: 1px solid rgba(52, 73, 94, 0.0);*/
 }
 
 .thBorder{
@@ -502,9 +516,27 @@ td {
   }
 }
 
+h4 {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.smash2 {
+  color: white;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
 .smash{
-  background-color: #eee;
-  color: #E36F67;
+  background-color: #336E7B;
+  color: lightblue;
+  margin: 0;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  max-width: 100%;
+  letter-spacing: 1px;
 }
 
 
@@ -573,6 +605,17 @@ padding: 0px;
     color: white;
 }
 
+.daTask{
+  margin: 0;
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 350;
+  max-width: 100%;
+  letter-spacing: 1px;
+}
+
 h1 {
   /*background: #677077;*/
   color: white;
@@ -605,7 +648,7 @@ ul {
 li {
   list-style-type: none;
   max-width: 100%;
-  background: #2c3e50;
+  /*background: #2c3e50;*/
 }
 
 li:nth-child(2n) {
@@ -626,7 +669,7 @@ footer {
 	opacity: 50%;
 	border: none;
 	outline-style: none;
-	color: white;
+	/*color: white;*/
 	background-color: #F28705;
 	height: 45px;
   width: 100%;
@@ -686,7 +729,7 @@ input:focus {
 }
 
 .login-header,
-.login p {
+.login  {
   margin-top: 0;
   margin-bottom: 0;
 }
