@@ -28,8 +28,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
 myApp.controller('mainController', [ '$scope', '$http', '$rootScope',
  function ($scope, $http, $rootScope) {
 
+$rootScope.totalSmashes = 0;
+$rootScope.totalTasks = 0;
 
-	 //------------------------------MONDAY--------------------------------
+
+	 //------------------------------SUNDAY--------------------------------
 
 
  	  $rootScope.sundayTotalValue=[];
@@ -37,6 +40,7 @@ myApp.controller('mainController', [ '$scope', '$http', '$rootScope',
 
  	    $scope.addSundayTask = function (){
  	      // console.log("button clicked");
+				$rootScope.totalTasks++;
 
  	    $scope.newSundayTask = {
  	        name: $scope.nameIn,
@@ -62,7 +66,9 @@ myApp.controller('mainController', [ '$scope', '$http', '$rootScope',
  	    // $scope.sundayCheckTask();
 
  	    });
+
  	      $scope.nameIn =''; // Reset input
+
  	  };
 
 // SHOW TASKS -----------------------------------------------
@@ -88,7 +94,9 @@ myApp.controller('mainController', [ '$scope', '$http', '$rootScope',
 
 $scope.completeSundayTask = function(taskID){
 	// event.preventDefault();
+			$rootScope.totalSmashes ++;
 
+			console.log("SMASHES+", $rootScope.totalSmashes);
 			$scope.isActive = false;
 
 			$scope.activeButton = function() {
@@ -182,6 +190,7 @@ $scope.completeSundayTask = function(taskID){
 
     $scope.addMondayTask = function (){
       // console.log("button clicked");
+			$rootScope.totalTasks++;
 
     $scope.newMondayTask = {
         name: $scope.nameIn,
@@ -235,6 +244,8 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
     // event.preventDefault();
 		console.log("All SUNDAY tasks are: ", $scope.allSundayTasks);
 
+				$rootScope.totalSmashes ++;
+
         $scope.isActive = false;
 
         $scope.activeButton = function() {
@@ -268,6 +279,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 
 	     $scope.addTuesdayTask = function (){
 	       // console.log("button clicked");
+				 $rootScope.totalTasks++;
 
 	     $scope.newTuesdayTask = {
 	         name: $scope.nameIn,
@@ -318,6 +330,8 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 
 	   $scope.completeTuesdayTask = function(taskID){
 
+			 			$rootScope.totalSmashes ++;
+
 	         $scope.isActive = false;
 
 	         $scope.activeButton = function() {
@@ -350,6 +364,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 
    $scope.addWednesdayTask = function (){
      // console.log("button clicked");
+		 $rootScope.totalTasks++;
 
    $scope.newWednesdayTask = {
        name: $scope.nameIn,
@@ -397,6 +412,8 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
  $scope.completeWednesdayTask = function(taskID){
 
+	 $rootScope.totalSmashes ++;
+
        $scope.isActive = false;
 
        $scope.activeButton = function() {
@@ -425,6 +442,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 	   $scope.addThursdayTask = function (){
 	     // console.log("button clicked");
+			 $rootScope.totalTasks++;
 
 	   $scope.newThursdayTask = {
 	       name: $scope.nameIn,
@@ -472,6 +490,8 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 	 $scope.completeThursdayTask = function(taskID){
 
+		 $rootScope.totalSmashes ++;
+
 	       $scope.isActive = false;
 
 	       $scope.activeButton = function() {
@@ -500,6 +520,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 			 $scope.addFridayTask = function (){
 				 // console.log("button clicked");
+				 $rootScope.totalTasks++;
 
 			 $scope.newFridayTask = {
 					 name: $scope.nameIn,
@@ -547,6 +568,8 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 		 $scope.completeFridayTask = function(taskID){
 
+			 $rootScope.totalSmashes ++;
+
 					 $scope.isActive = false;
 
 					 $scope.activeButton = function() {
@@ -575,6 +598,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 				 $scope.addSaturdayTask = function (){
 					 // console.log("button clicked");
+					 $rootScope.totalTasks++;
 
 				 $scope.newSaturdayTask = {
 						 name: $scope.nameIn,
@@ -621,6 +645,8 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 			// COMPLETE TASK -----------------------------------------------
 
 			 $scope.completeSaturdayTask = function(taskID){
+
+				 $rootScope.totalSmashes ++;
 
 						 $scope.isActive = false;
 
