@@ -5,21 +5,31 @@
   <!-- Add Task Button -->
     <button type="button" name="submitTask" id="submitTask" ng-click="addSundayTask()">+</button>
 
-      <div id='outputDiv' class='outputDiv'>
+      <div id='outputDiv'  class="outputDiv ng-style: newSundayTask.sunday_total == 1 && {background:'#1A8BB2'}
+      || newSundayTask.sunday_total == 2 && {background:'#127899'}
+      || newSundayTask.sunday_total == 3 && {background:'#13647F'}
+      || newSundayTask.sunday_total == 4 && {background:'#0E5066'}
+      || newSundayTask.sunday_total == 5 && {background:'#0B3C4C'};">
+
     <!-- Begin UL List -->
         <ul class="unstyled centered">
           <!-- Begin LI List -->
-            <li ng-repeat= "task in sundayTasks" ng-class="{ 'text-danger': wrong, bubble: insane }"  class="control-inline liBorder" id="oneTask"> <span class="taskName"><h1>{{ task.task_name }}</h1></span><br>
-                <!-- Smash Button -->
-                    <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeSundayTask(task.id)" id="smashButton" >
+          <div class="smash2">
+            <div>
 
-                  <div class="smash">
+                    <li ng-repeat= "task in sundayTasks" ng-class="{ 'text-danger': wrong, bubble: insane }"  class="control-inline liBorder" id="oneTask"> <span class="taskName"><p>{{ task.task_name }}</p></span><br>
+                  <!-- Smash Button -->
 
-                    <h2 ng-class="{ 'text-danger': wrong, bubble: insane }" >
-                      SMASH!
-                    </h2>
+                      <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeSundayTask(task.id)" id="smashButton" >
 
-                </div>
+
+                    <div class="smash">
+
+                      <h4 ng-class="{ 'text-danger': wrong, bubble: insane }" >
+                        SMASH!
+                      </h4>
+
+                  </div>
 
             </div>
             <!-- End List -->

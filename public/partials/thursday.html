@@ -5,26 +5,30 @@
   <!-- Add Task Button -->
     <button type="button" name="submitTask" id="submitTask" ng-click="addThursdayTask()">+</button>
 
-      <div id='outputDiv' class='outputDiv'>
+      <div id='outputDiv'  class="outputDiv ng-style: newThursdayTask.thursday_total == 1 && {background:'#1A8BB2'}
+      || newThursdayTask.thursday_total == 2 && {background:'#127899'}
+      || newThursdayTask.thursday_total == 3 && {background:'#13647F'}
+      || newThursdayTask.thursday_total == 4 && {background:'#0E5066'}
+      || newThursdayTask.thursday_total == 5 && {background:'#0B3C4C'};">
+
     <!-- Begin UL List -->
         <ul class="unstyled centered">
           <!-- Begin LI List -->
-            <li ng-repeat= "task in thursdayTasks" ng-class="{ 'text-danger': wrong, bubble: insane }"  class="control-inline liBorder" id="oneTask"> <span class="taskName"><h1>{{ task.task_name }}</h1></span><br>
-                <!-- Smash Button -->
-                    <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeThursdayTask(task.id)" id="smashButton" >
+          <div class="smash2">
+                <div>
+                    <li ng-repeat= "task in thursdayTasks" ng-class="{ 'text-danger': wrong, bubble: insane }"  class="control-inline liBorder" id="oneTask"> <span class="taskName"><p>{{ task.task_name }}</p></span><br>
+                  <!-- Smash Button -->
 
-                  <div class="smash">
+                      <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeThursdayTask(task.id)" id="smashButton" >
 
-                    <h2 ng-class="{ 'text-danger': wrong, bubble: insane }" >
-                      SMASH!
-                    </h2>
-
+                    <div class="smash">
+                      <h4 ng-class="{ 'text-danger': wrong, bubble: insane }" >
+                        SMASH!
+                      </h4>
+                    </div>
                 </div>
-
-            </div>
             <!-- End List -->
-          </li>
+            </li>
           <!-- End List -->
-        </ul>
-
-</div>
+          </ul>
+        </div>

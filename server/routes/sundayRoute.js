@@ -31,6 +31,8 @@ router.post ( "/sundayTask", function ( req, res ){
 // Send new task to data base
 router.post ( '/completeSundayTask', function ( req, res ){
   console.log("TASK SMASHEDDDDD!!!!!!");
+  var results = [];
+
   pg.connect( connectionString, function( err, client, done ){
     // console.log("Hello" + id);
     // console.log("Hello" + task.id);
@@ -39,8 +41,42 @@ router.post ( '/completeSundayTask', function ( req, res ){
 
     client.query ( 'UPDATE sunday_table SET completed=true where id=' + req.body.id + ';' );
   done();
-    res.end();
-  }); // End of pg
+  // var allTasks = [];
+  //
+  // var taskQuery = client.query ( "SELECT * FROM sunday_table");
+  //   done();
+  // var rows = 0;
+  //
+  // taskQuery.on( 'row', function ( row ){
+  //   // console.log(row);
+  //   allTasks.push( row );
+  //   // console.log("PG: ", allTasks);
+  //
+  // });
+  //
+  // taskQuery.on( 'end', function (){
+  //   console.log("completed task be: ", allTasks);
+  //   return res.json( allTasks );
+  //   });
+  }); // End pg.connect function
+
+
+
+
+  // // Stream results back one row at a time
+  // query.on('row', function(row) {
+  //     results.push(row);
+  // });
+  // console.log("RESULTS", results);
+  // // SQL Query > Select Data
+  //  var query = client.query("SELECT * FROM sunday_table ORDER BY id ASC");
+  //
+  //  // After all data is returned, close connection and return results
+  //  query.on('end', function() {
+  //      done();
+  //      return res.json(results);
+  //  });
+
 }); // End of post
 
 // --------------------------------------------------------
@@ -100,24 +136,11 @@ router.get('/getSundayTasks', function( req, res){
 // Send new task to data base
 router.post ( '/moveSundayTask', function ( req, res ){
   console.log("CHECKED BRO");
-  console.log("TASK TO BE MOVED", req.body.name);
 
-  // pg.connect( connectionString, function( err, client, done ){
-
-  //   var query =  client.query ( 'INSERT INTO monday_table (id) SELECT id=' +req.body.id+ '; FROM sunday_table' );
-  // done();
-  //   res.end();
-  // }); // End of pg
 
 /////// TESTEROONIE
   pg.connect( connectionString, function( err, client, done ){
     console.log("TASK TO BE MOVED", req.body.name);
-
-  // var query =  client.query ( 'SELECT * FROM sunday_table' );
-  // done();
-  //   console.log( query );
-  //   res.end();
-  // }); // End of pg
 
   var query = client.query( 'SELECT * FROM sunday_table' );
     console.log( " -------------------- query: ", query );
