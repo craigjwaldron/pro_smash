@@ -289,16 +289,7 @@ body {
   75%     { -webkit-transform:scale(1); }
 }
 
-/*@keyframes pulse {
-  0%      { transform:scale(1); }
-  25%     { transform:scale(2); }
-  75%     { transform:scale(1); }
-}
-@-webkit-keyframes pulse {
-  0%      { -webkit-transform:scale(1); }
-  25%     { -webkit-transform:scale(2); }
-  75%     { -webkit-transform:scale(1); }
-}*/
+
 
 .oneTask{
   /*background-color: blue;*/

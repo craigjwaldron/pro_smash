@@ -1,9 +1,11 @@
 
 <div modalDialog id="tasksDiv" ng-controller = "mainController">
   <!-- Task Enter Field -->
+  <form ng-submit="addTuesdayTask()">
+
   <span ng-style="myStyle"><input style="text-transform: uppercase" type="text" name="taskInput" id="taskInput" value="" placeholder="Enter Task" ng-model = "nameIn"></span><br>
   <!-- Add Task Button -->
-    <button type="button" name="submitTask" id="submitTask" ng-click="addTuesdayTask()">+</button>
+    <button type="submit" name="submitTask" id="submitTask"">+</button>
 
       <div id='outputDiv'  class="outputDiv ng-style: newTuesdayTask.tuesday_total == 1 && {background:'#1A8BB2'}
       || newTuesdayTask.tuesday_total == 2 && {background:'#127899'}
