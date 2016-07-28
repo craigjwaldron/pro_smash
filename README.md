@@ -1,3 +1,3 @@
 # pro_smash
 
-Solo Project
+A weekly todo list that allows you to visualize your week and distribute tasks accordingly.
