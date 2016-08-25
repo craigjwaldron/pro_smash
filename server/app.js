@@ -73,6 +73,6 @@ router.get( '/', function ( req, res ){
 });
 
 // Spinning up the server
-app.listen(3000, function(){
-  console.log('listening on server 3000');
+app.listen(5000, function(){
+  console.log('listening on server 5000');
 });
