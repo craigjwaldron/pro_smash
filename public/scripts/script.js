@@ -145,12 +145,6 @@ $scope.completeSundayTask = function(taskID){
 
         console.log("DAY BE: ", $rootScope.count);
 				console.log("SUNDAY BE: ", $rootScope.allSundayTasks);
-        // console.log("MONDAY BE", $rootScope.allMondayTasks);
-				// console.log("THURSDAY BE", $rootScope.allThursdayTasks);
-				// console.log("FRIDAY BE", $rootScope.allFridayTasks);
-				// console.log("SUNDAY DUE: ", $rootScope.allSundayTasks[0].day_due);
-				// console.log("SUNDAY DUE: ", $rootScope.allMondayTasks[0].day_due);
-				// $scope.showSundayTasks();
 				console.log('SUNDAY NOW BE: ', $rootScope.allSundayTasks);
 
         for (var i = 0; i < $rootScope.allSundayTasks.length; i++) {
@@ -164,22 +158,7 @@ $scope.completeSundayTask = function(taskID){
 					}
 
 				}
-//   			var moveTask =  $scope.allSundayTasks[i].row.day_due;
-// console.log("MOVE TASK", moveTask);
-//           if ($rootScope.allSundayTasks.day_due < $rootScope.count && $rootScope.allSundayTasks === false ){
-//
-//           }
-//         }
-
-      // else {
-      //
-      //   console.log("Task still has time");
-      //
-      // }
-
     }; // End completeSundayTask
-
-
 
 
 //------------------------------MONDAY--------------------------------
@@ -664,7 +643,6 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 						url: 'saturdayRoute/completeSaturdayTask',
 						data: sendID
 					}).then(function(){
-
 
 					});
 				}; // End complete Saturday Task
