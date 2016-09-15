@@ -251,11 +251,19 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
   //  }; // End completeSundayTask
 
 
-
 	 $scope.completeMondayTask = function(taskID){
 	     event.preventDefault();
 
-	    //  for(var i in $scope.totalValue) { newTask.monday_total -= $scope.totalValue[i]; }
+			 			$rootScope.totalSmashes ++;
+
+				      $scope.isActive = false;
+
+				      $scope.activeButton = function() {
+				          $scope.isActive = !$scope.isActive;
+				        };
+
+			 				// $scope.totalValue.splice($scope.newSundayTask.task_total_value);
+			 				$scope.newMondayTask.monday_total --;
 
 	     console.log("Monday total tasks AFTER DELETE", $scope.totalValue);
 
@@ -458,6 +466,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 	       thursday_total: 0,
 	     };
 
+
 	$rootScope.allThursdayTasks.push($scope.newThursdayTask);
 	// Pushing to $scope.totalValue array and adding
 	$rootScope.thursdayTotalValue.push($scope.newThursdayTask.task_total_value);
@@ -473,6 +482,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 	   });
 	     $scope.nameIn =''; // Reset input
+
 	 };
 
 	// SHOW TASKS -----------------------------------------------
