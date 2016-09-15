@@ -8,8 +8,23 @@ var router = express.Router();
 var pg = require('pg');
 var bodyParser = require('body-parser');
 var app = express();
-var connectionStringUsers = 'postgres://localhost:5432/pro_smash_users';
-var connectionString = "postgres://localhost:5432/pro_smash_tasks";
+// var connectionStringUsers = 'postgres://localhost:5432/pro_smash_users';
+// var connectionString = "postgres://localhost:5432/pro_smash_tasks";
+
+var connectionStringUsers = '';
+var connectionString = '';
+
+if(process.env.DATABASE_URL !== undefined) {
+    console.log('env connection string');
+  connectionString = process.env.DATABASE_URL;
+  pg.defaults.ssl = true;
+} else {
+  connectionString = 'postgres://localhost:5432/pro_smash_tasks';
+}
+console.log("connectionString set to: ", connectionString);
+module.exports = connectionString;
+module.exports = connectionStringUsers;
+
 
 //passport connection
 var passport = require('./strategies/user.sql.js');
@@ -72,7 +87,7 @@ router.get( '/', function ( req, res ){
   res.sendFile( path.resolve( 'views/index.html' ) );
 });
 
-// Spinning up the server
-app.listen(3000, function(){
-  console.log('listening on server 3000');
+// On the server-------------------------------------------------------------------------------------------------------
+app.listen(process.env.PORT || 3000, function(req, res){
+  // console.log( "listening from server 3000" );
 });
