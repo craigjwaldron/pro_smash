@@ -92,7 +92,6 @@ $rootScope.totalTasks = 0;
 
 // COMPLETE TASK -----------------------------------------------
 
-
 $scope.completeSundayTask = function(taskID){
 	// event.preventDefault();
 			$rootScope.totalSmashes ++;
@@ -359,9 +358,12 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 	     //  console.log("In da delete task: " + id);
 	      var sendID = {id: taskID};
 	      $http({
-	        method: 'POST',
-	        url: 'tuesdayRoute/completeTuesdayTask',
-	        data: sendID
+
+	        method: 'DELETE',
+	        url: 'tuesdayRoute/deleteTuesdayTask',
+	        data: sendID,
+					headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 	      }).then(function(){
 	       //  $scope.showSundayTasks();
 	       //  $scope.sundayCheckTask();
@@ -438,9 +440,12 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
    //  console.log("In da delete task: " + id);
     var sendID = {id: taskID};
     $http({
-      method: 'POST',
-      url: 'wednesdayRoute/completeWednesdayTask',
-      data: sendID
+
+      method: 'DELETE',
+      url: 'wednesdayRoute/deleteWednesdayTask',
+      data: sendID,
+			headers: {'Content-Type': 'application/json;charset=utf-8'}
+
     }).then(function(){
 
 
@@ -518,9 +523,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 	   //  console.log("In da delete task: " + id);
 	    var sendID = {id: taskID};
 	    $http({
-	      method: 'POST',
-	      url: 'thursdayRoute/completeThursdayTask',
-	      data: sendID
+	      method: 'DELETE',
+	      url: 'thursdayRoute/deleteThursdayTask',
+	      data: sendID,
+				headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 	    }).then(function(){
 
 
@@ -596,9 +603,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 			 //  console.log("In da delete task: " + id);
 				var sendID = {id: taskID};
 				$http({
-					method: 'POST',
-					url: 'fridayRoute/completeFridayTask',
-					data: sendID
+					method: 'DELETE',
+					url: 'fridayRoute/deleteFridayTask',
+					data: sendID,
+					headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 				}).then(function(){
 
 
@@ -674,9 +683,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 				 //  console.log("In da delete task: " + id);
 					var sendID = {id: taskID};
 					$http({
-						method: 'POST',
-						url: 'saturdayRoute/completeSaturdayTask',
-						data: sendID
+						method: 'DELETE',
+						url: 'saturdayRoute/deleteSaturdayTask',
+						data: sendID,
+						headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 					}).then(function(){
 
 					});
