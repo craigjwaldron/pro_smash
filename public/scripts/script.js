@@ -109,9 +109,11 @@ $scope.completeSundayTask = function(taskID){
 	//  console.log("In da delete task: " + id);
 	 var sendID = {id: taskID};
 	 $http({
-		 method: 'POST',
-		 url: 'sundayRoute/completeSundayTask',
-		 data: sendID
+		 method: 'DELETE',
+		 url: 'sundayRoute/deleteSundayTask',
+		 data: sendID,
+		 headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 	 }).then(function(){
 		//  $scope.showSundayTasks();
 		//  $scope.sundayCheckTask();
@@ -141,11 +143,7 @@ $scope.completeSundayTask = function(taskID){
 					 // end of if
 				 };
 
-        console.log("All tasks are: ", $rootScope.allSundayTasks);
-
-        console.log("DAY BE: ", $rootScope.count);
-				console.log("SUNDAY BE: ", $rootScope.allSundayTasks);
-				console.log('SUNDAY NOW BE: ', $rootScope.allSundayTasks);
+        // console.log("All tasks are: ", $rootScope.allSundayTasks);
 
         for (var i = 0; i < $rootScope.allSundayTasks.length; i++) {
 					console.log($rootScope.allSundayTasks[i].day_due);
@@ -251,11 +249,19 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
   //  }; // End completeSundayTask
 
 
-
 	 $scope.completeMondayTask = function(taskID){
 	     event.preventDefault();
 
-	    //  for(var i in $scope.totalValue) { newTask.monday_total -= $scope.totalValue[i]; }
+			 			$rootScope.totalSmashes ++;
+
+				      $scope.isActive = false;
+
+				      $scope.activeButton = function() {
+				          $scope.isActive = !$scope.isActive;
+				        };
+
+			 				// $scope.totalValue.splice($scope.newSundayTask.task_total_value);
+			 				$scope.newMondayTask.monday_total --;
 
 	     console.log("Monday total tasks AFTER DELETE", $scope.totalValue);
 
@@ -273,7 +279,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 	        // $scope.showMondayTasks();
 
 	      });
-	    };// End deleteSundayTask
+	    };// End completeMondayTask
 
 
 	 //------------------------------TUESDAY--------------------------------
@@ -352,9 +358,12 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 	     //  console.log("In da delete task: " + id);
 	      var sendID = {id: taskID};
 	      $http({
-	        method: 'POST',
-	        url: 'tuesdayRoute/completeTuesdayTask',
-	        data: sendID
+
+	        method: 'DELETE',
+	        url: 'tuesdayRoute/deleteTuesdayTask',
+	        data: sendID,
+					headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 	      }).then(function(){
 	       //  $scope.showSundayTasks();
 	       //  $scope.sundayCheckTask();
@@ -431,9 +440,12 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
    //  console.log("In da delete task: " + id);
     var sendID = {id: taskID};
     $http({
-      method: 'POST',
-      url: 'wednesdayRoute/completeWednesdayTask',
-      data: sendID
+
+      method: 'DELETE',
+      url: 'wednesdayRoute/deleteWednesdayTask',
+      data: sendID,
+			headers: {'Content-Type': 'application/json;charset=utf-8'}
+
     }).then(function(){
 
 
@@ -458,6 +470,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 	       thursday_total: 0,
 	     };
 
+
 	$rootScope.allThursdayTasks.push($scope.newThursdayTask);
 	// Pushing to $scope.totalValue array and adding
 	$rootScope.thursdayTotalValue.push($scope.newThursdayTask.task_total_value);
@@ -473,6 +486,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 	   });
 	     $scope.nameIn =''; // Reset input
+
 	 };
 
 	// SHOW TASKS -----------------------------------------------
@@ -509,9 +523,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 	   //  console.log("In da delete task: " + id);
 	    var sendID = {id: taskID};
 	    $http({
-	      method: 'POST',
-	      url: 'thursdayRoute/completeThursdayTask',
-	      data: sendID
+	      method: 'DELETE',
+	      url: 'thursdayRoute/deleteThursdayTask',
+	      data: sendID,
+				headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 	    }).then(function(){
 
 
@@ -587,9 +603,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 			 //  console.log("In da delete task: " + id);
 				var sendID = {id: taskID};
 				$http({
-					method: 'POST',
-					url: 'fridayRoute/completeFridayTask',
-					data: sendID
+					method: 'DELETE',
+					url: 'fridayRoute/deleteFridayTask',
+					data: sendID,
+					headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 				}).then(function(){
 
 
@@ -665,9 +683,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 				 //  console.log("In da delete task: " + id);
 					var sendID = {id: taskID};
 					$http({
-						method: 'POST',
-						url: 'saturdayRoute/completeSaturdayTask',
-						data: sendID
+						method: 'DELETE',
+						url: 'saturdayRoute/deleteSaturdayTask',
+						data: sendID,
+						headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 					}).then(function(){
 
 					});

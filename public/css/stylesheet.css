@@ -1,7 +1,7 @@
 /* Reset */
 
 .outputDiv {
-  /*height: 500px;*/
+  background-color: #0B3C4C;
 }
 
 .clock {
@@ -579,8 +579,13 @@ h4 {
 
 #smashButton{
 /*background: blue;*/
-margin-right: 0px;
-padding: 0px;
+  margin-right: 0px;
+  padding: 0px;
+  -ms-transform: scale(4); /* IE */
+  -moz-transform: scale(4); /* FF */
+  -webkit-transform: scale(20,2); /* Safari and Chrome */
+  -o-transform: scale(4); /* Opera */
+  /*padding: 10px;*/
 }
 
 #taskDiv {
