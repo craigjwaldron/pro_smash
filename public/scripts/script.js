@@ -92,6 +92,7 @@ $rootScope.totalTasks = 0;
 
 // COMPLETE TASK -----------------------------------------------
 
+
 $scope.completeSundayTask = function(taskID){
 	// event.preventDefault();
 			$rootScope.totalSmashes ++;
@@ -109,9 +110,11 @@ $scope.completeSundayTask = function(taskID){
 	//  console.log("In da delete task: " + id);
 	 var sendID = {id: taskID};
 	 $http({
-		 method: 'POST',
-		 url: 'sundayRoute/completeSundayTask',
-		 data: sendID
+		 method: 'DELETE',
+		 url: 'sundayRoute/deleteSundayTask',
+		 data: sendID,
+		 headers: {'Content-Type': 'application/json;charset=utf-8'}
+
 	 }).then(function(){
 		//  $scope.showSundayTasks();
 		//  $scope.sundayCheckTask();
@@ -141,11 +144,7 @@ $scope.completeSundayTask = function(taskID){
 					 // end of if
 				 };
 
-        console.log("All tasks are: ", $rootScope.allSundayTasks);
-
-        console.log("DAY BE: ", $rootScope.count);
-				console.log("SUNDAY BE: ", $rootScope.allSundayTasks);
-				console.log('SUNDAY NOW BE: ', $rootScope.allSundayTasks);
+        // console.log("All tasks are: ", $rootScope.allSundayTasks);
 
         for (var i = 0; i < $rootScope.allSundayTasks.length; i++) {
 					console.log($rootScope.allSundayTasks[i].day_due);
@@ -281,7 +280,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 	        // $scope.showMondayTasks();
 
 	      });
-	    };// End deleteSundayTask
+	    };// End completeMondayTask
 
 
 	 //------------------------------TUESDAY--------------------------------

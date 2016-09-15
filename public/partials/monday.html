@@ -14,21 +14,16 @@
           <!-- Begin LI List -->
           <div class="smash2">
             <div>
-
                     <li ng-repeat= "task in mondayTasks" ng-class="{ 'text-danger': wrong, bubble: insane }"  class="control-inline liBorder" id="oneTask"> <span class="taskName"><p>{{ task.task_name }}</p></span><br>
                   <!-- Smash Button -->
 
                       <input class="styled-checkbox" type="checkbox" ng-model="insane" ng-click = "completeMondayTask(task.id)" id="smashButton" >
 
-
                     <div class="smash">
-
                       <h4 ng-class="{ 'text-danger': wrong, bubble: insane }" >
                         SMASH!
                       </h4>
-
-                  </div>
-
+                    </div>
             </div>
             <!-- End List -->
           </li>
