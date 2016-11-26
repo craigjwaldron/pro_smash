@@ -3,8 +3,8 @@ var myApp = angular.module('myApp', ['ngRoute']);
 myApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 		.when('/login', {
-			templateUrl: '/views/login.html',
-			controller: "LoginController"
+			templateUrl: '/views/home.html',
+			controller: "HomeController"
 		})
 		.when('/register', {
 			templateUrl: '/views/register.html',
@@ -40,15 +40,14 @@ $rootScope.totalTasks = 0;
 
  	    $scope.addSundayTask = function (){
  	      // console.log("button clicked");
-				if ($scope.nameIn === "undefined") {
-    	alert("something is undefined");
-			}
-			else {
+				if ($scope.nameIn.length === 0){
+					alert("Please enter a task to smash");
+				}
+				else {
 
 				$rootScope.totalTasks++;
 
- 	    	$scope.newSundayTask = {
-
+ 	    $scope.newSundayTask = {
  	        name: $scope.nameIn,
  	        completed: false,
  	        day_due: 1,
@@ -56,12 +55,15 @@ $rootScope.totalTasks = 0;
  	        task_total_value: 1,
  	        sunday_total: 0,
  	      };
-			}
+
+				// console.log($scope.newSundayTask.name);
+
 
  	$rootScope.allSundayTasks.push($scope.newSundayTask);
  	// Pushing to $scope.totalValue array and adding
  	$rootScope.sundayTotalValue.push($scope.newSundayTask.task_total_value);
  	for(var i in $rootScope.sundayTotalValue) { $scope.newSundayTask.sunday_total += $rootScope.sundayTotalValue[i]; }
+
 
  	    $http({
  	    method: 'POST',
@@ -75,7 +77,7 @@ $rootScope.totalTasks = 0;
  	    });
 
  	      $scope.nameIn =''; // Reset input
-
+			}
  	  };
 
 // SHOW TASKS -----------------------------------------------
@@ -174,6 +176,11 @@ $scope.completeSundayTask = function(taskID){
 
     $scope.addMondayTask = function (){
       // console.log("button clicked");
+			if ($scope.nameIn.length === 0){
+				alert("Please enter a task to smash");
+			}
+			else {
+
 			$rootScope.totalTasks++;
 
     $scope.newMondayTask = {
@@ -184,6 +191,7 @@ $scope.completeSundayTask = function(taskID){
         task_total_value: 1,
         monday_total: 0,
       };
+
 
 $rootScope.allMondayTasks.push($scope.newMondayTask);
 // Pushing to $scope.totalValue array and adding
@@ -201,6 +209,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 
     });
       $scope.nameIn =''; // Reset input
+		}
   };
 
 // SHOW TASKS -----------------------------------------------
@@ -297,6 +306,11 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 
 	     $scope.addTuesdayTask = function (){
 	       // console.log("button clicked");
+				 if ($scope.nameIn.length === 0){
+					 alert("Please enter a task to smash");
+				 }
+				 else {
+
 				 $rootScope.totalTasks++;
 
 	     $scope.newTuesdayTask = {
@@ -307,6 +321,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 	         task_total_value: 1,
 	         tuesday_total: 0,
 	       };
+
 
 	 $rootScope.allTuesdayTasks.push($scope.newTuesdayTask);
 	 // Pushing to $scope.totalValue array and adding
@@ -324,6 +339,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 
 	     });
 	       $scope.nameIn =''; // Reset input
+			 }
 	   };
 
 	 // SHOW TASKS -----------------------------------------------
@@ -385,6 +401,11 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
 
    $scope.addWednesdayTask = function (){
      // console.log("button clicked");
+		 if ($scope.nameIn.length === 0){
+			 alert("Please enter a task to smash");
+		 }
+		 else {
+
 		 $rootScope.totalTasks++;
 
    $scope.newWednesdayTask = {
@@ -395,6 +416,7 @@ for(var i in $rootScope.mondayTotalValue) { $scope.newMondayTask.monday_total +=
        task_total_value: 1,
        wednesday_total: 0,
      };
+
 
 $rootScope.allWednesdayTasks.push($scope.newWednesdayTask);
 // Pushing to $scope.totalValue array and adding
@@ -411,6 +433,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
    });
      $scope.nameIn =''; // Reset input
+	 }
  };
 
 // SHOW TASKS -----------------------------------------------
@@ -466,6 +489,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 	   $scope.addThursdayTask = function (){
 	     // console.log("button clicked");
+			 if ($scope.nameIn.length === 0){
+				 alert("Please enter a task to smash");
+			 }
+			 else {
+
 			 $rootScope.totalTasks++;
 
 	   $scope.newThursdayTask = {
@@ -476,7 +504,6 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 	       task_total_value: 1,
 	       thursday_total: 0,
 	     };
-
 
 	$rootScope.allThursdayTasks.push($scope.newThursdayTask);
 	// Pushing to $scope.totalValue array and adding
@@ -493,7 +520,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 	   });
 	     $scope.nameIn =''; // Reset input
-
+		 }
 	 };
 
 	// SHOW TASKS -----------------------------------------------
@@ -548,6 +575,11 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 			 $scope.addFridayTask = function (){
 				 // console.log("button clicked");
+				 if ($scope.nameIn.length === 0){
+					 alert("Please enter a task to smash");
+				 }
+				 else {
+
 				 $rootScope.totalTasks++;
 
 			 $scope.newFridayTask = {
@@ -574,6 +606,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 			 });
 				 $scope.nameIn =''; // Reset input
+			 }
 		 };
 
 		// SHOW TASKS -----------------------------------------------
@@ -628,6 +661,14 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 				 $scope.addSaturdayTask = function (){
 					 // console.log("button clicked");
+					//  console.log($scope.nameIn.length);
+
+					 if ($scope.nameIn.length === 0){
+						 alert("Please enter a task to smash");
+					 }
+					 else {
+
+
 					 $rootScope.totalTasks++;
 
 				 $scope.newSaturdayTask = {
@@ -654,6 +695,7 @@ for(var i in $rootScope.wednesdayTotalValue) { $scope.newWednesdayTask.wednesday
 
 				 });
 					 $scope.nameIn =''; // Reset input
+				 }
 			 };
 
 			// SHOW TASKS -----------------------------------------------
