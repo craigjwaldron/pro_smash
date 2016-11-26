@@ -40,9 +40,15 @@ $rootScope.totalTasks = 0;
 
  	    $scope.addSundayTask = function (){
  	      // console.log("button clicked");
+				if ($scope.nameIn === "undefined") {
+    	alert("something is undefined");
+			}
+			else {
+
 				$rootScope.totalTasks++;
 
- 	    $scope.newSundayTask = {
+ 	    	$scope.newSundayTask = {
+
  	        name: $scope.nameIn,
  	        completed: false,
  	        day_due: 1,
@@ -50,6 +56,7 @@ $rootScope.totalTasks = 0;
  	        task_total_value: 1,
  	        sunday_total: 0,
  	      };
+			}
 
  	$rootScope.allSundayTasks.push($scope.newSundayTask);
  	// Pushing to $scope.totalValue array and adding
